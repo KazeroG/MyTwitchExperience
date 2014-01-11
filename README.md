@@ -25,3 +25,4 @@ Features to come:
 
 Download compiled version:
 http://raw-raw.de/mtedl/MyTwitchExperience.zip
+Virustotal: https://www.virustotal.com/de/file/11aef0536afbe167bb558e654afe2d7e981656b8d37e76443477829c0b022575/analysis/1389414461/
