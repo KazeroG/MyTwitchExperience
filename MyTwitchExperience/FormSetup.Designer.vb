@@ -82,7 +82,7 @@ Partial Class FormSetup
         'ComboBoxLocale
         '
         Me.ComboBoxLocale.FormattingEnabled = True
-        Me.ComboBoxLocale.Items.AddRange(New Object() {"en", "id", "ma", "ca", "da", "de", "es", "fr", "it", "lv", "lt", "nl", "pl", "pt", "pt-br", "ro", "tl", "vi", "tr", "sk", "el", "ru", "ar", "hi", "zh-cn", "zh-tw", "ja", "ko"})
+        Me.ComboBoxLocale.Items.AddRange(New Object() {"en", "id", "ma", "ca", "da", "de", "es", "fr", "it", "lv", "lt", "nl", "pl", "pt", "pt-br", "ro", "tl", "vi", "tr", "sk", "sv", "el", "ru", "ar", "hi", "zh-cn", "zh-tw", "ja", "ko"})
         Me.ComboBoxLocale.Location = New System.Drawing.Point(12, 123)
         Me.ComboBoxLocale.Name = "ComboBoxLocale"
         Me.ComboBoxLocale.Size = New System.Drawing.Size(51, 21)

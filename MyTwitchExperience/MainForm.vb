@@ -109,11 +109,16 @@ Public Class MainForm
             Dim ImageStream As New IO.MemoryStream(ImageInBytes)
             PictureBoxPreview.Image = New System.Drawing.Bitmap(ImageStream)
             PictureBoxPreview.SizeMode = PictureBoxSizeMode.StretchImage
-            Dim logodownloader As New System.Net.WebClient
-            Dim ImageInBytes2() As Byte = logodownloader.DownloadData(logolink)
-            Dim ImageStream2 As New IO.MemoryStream(ImageInBytes2)
-            PictureBoxLogo.Image = New System.Drawing.Bitmap(ImageStream2)
-            PictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage
+            Try
+                Dim logodownloader As New System.Net.WebClient
+                Dim ImageInBytes2() As Byte = logodownloader.DownloadData(logolink)
+                Dim ImageStream2 As New IO.MemoryStream(ImageInBytes2)
+                PictureBoxLogo.Image = New System.Drawing.Bitmap(ImageStream2)
+                PictureBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage
+            Catch ex As Exception
+                MsgBox("DEBUG - No avatar?")
+            End Try
+            
             'SET LABEL TEXT AND VISIBILITY
             Button5.Visible = True
             LabelGame.Text = game
@@ -131,7 +136,7 @@ Public Class MainForm
             'RichTextBox3.Text = RichTextBox3.Text.Replace("REPLACEWIDTH", "385")
             'WebBrowser1.DocumentText = RichTextBox3.Text
         Catch ex As Exception
-            'MsgBox(ex.ToString)
+            MsgBox(ex.ToString)
         End Try
         
     End Sub
