@@ -15,9 +15,9 @@ MyTwitchExperience lets you browse Twitch.tv without a browser.
 ***Features so far:***
 <br />[x]Read followers list
 <br />[x]Play video in Standard-Browser, VLC or directly in the application
+<br />[X]Browse games
 
 ***Features to come:***
-<br />[ ]Browse games (almost complete) + probably tomorrow done
 <br />[ ]Add "Top Channels"
 <br />[ ]View/Edit Block list
 <br />[ ]Private Messaging
@@ -27,6 +27,11 @@ MyTwitchExperience lets you browse Twitch.tv without a browser.
 
 ***Changelog:***
 <br />12.01.2014
+<br />-"Browse games" complete
+<br />-Donation Window Added
+<br />-catching some API error responses. TBC!
+
+12.01.2014
 <br />-Small bugfix
 
 11.01.2014
