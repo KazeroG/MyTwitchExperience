@@ -110,6 +110,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormDonate.Designer.vb">
+      <DependentUpon>FormDonate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDonate.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormGetAuth.Designer.vb">
       <DependentUpon>FormGetAuth.vb</DependentUpon>
     </Compile>
@@ -152,6 +158,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormDonate.resx">
+      <DependentUpon>FormDonate.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGetAuth.resx">
       <DependentUpon>FormGetAuth.vb</DependentUpon>
     </EmbeddedResource>

@@ -26,7 +26,7 @@ Partial Class MainForm
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ButtonRefreshLiveFollowing = New System.Windows.Forms.Button()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.lw_streamer = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.lw_viewers = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -41,6 +41,9 @@ Partial Class MainForm
         Me.DetailedInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabFollowing = New System.Windows.Forms.TabPage()
+        Me.LabelStatus = New System.Windows.Forms.Label()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.LabelGame = New System.Windows.Forms.Label()
@@ -54,6 +57,16 @@ Partial Class MainForm
         Me.ColumnHeaderURL = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.PictureBoxLogo = New System.Windows.Forms.PictureBox()
         Me.TabGames = New System.Windows.Forms.TabPage()
+        Me.LabelGLStatus = New System.Windows.Forms.Label()
+        Me.ButtonGLAddToMulti = New System.Windows.Forms.Button()
+        Me.ButtonGLOpenStream = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.ButtonGLOpenBrowserandChat = New System.Windows.Forms.Button()
+        Me.LabelGLGame = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.LabelGLStreamer = New System.Windows.Forms.Label()
+        Me.PictureBoxGLpreview = New System.Windows.Forms.PictureBox()
+        Me.PictureBoxGLlogo = New System.Windows.Forms.PictureBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
@@ -61,6 +74,10 @@ Partial Class MainForm
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ListView3 = New System.Windows.Forms.ListView()
         Me.ColumnHeaderGame = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeaderViewers = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -73,15 +90,15 @@ Partial Class MainForm
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RawrawToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.LabelStatus = New System.Windows.Forms.Label()
+        Me.DonateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabFollowing.SuspendLayout()
         CType(Me.PictureBoxPreview, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabGames.SuspendLayout()
+        CType(Me.PictureBoxGLpreview, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxGLlogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -101,14 +118,14 @@ Partial Class MainForm
         Me.ListBox1.Size = New System.Drawing.Size(99, 69)
         Me.ListBox1.TabIndex = 1
         '
-        'Button1
+        'ButtonRefreshLiveFollowing
         '
-        Me.Button1.Location = New System.Drawing.Point(6, 6)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Refresh"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.ButtonRefreshLiveFollowing.Location = New System.Drawing.Point(6, 6)
+        Me.ButtonRefreshLiveFollowing.Name = "ButtonRefreshLiveFollowing"
+        Me.ButtonRefreshLiveFollowing.Size = New System.Drawing.Size(96, 23)
+        Me.ButtonRefreshLiveFollowing.TabIndex = 2
+        Me.ButtonRefreshLiveFollowing.Text = "Get list / Refresh"
+        Me.ButtonRefreshLiveFollowing.UseVisualStyleBackColor = True
         '
         'ListView1
         '
@@ -209,7 +226,7 @@ Partial Class MainForm
         Me.TabFollowing.Controls.Add(Me.ListView2)
         Me.TabFollowing.Controls.Add(Me.PictureBoxLogo)
         Me.TabFollowing.Controls.Add(Me.ListView1)
-        Me.TabFollowing.Controls.Add(Me.Button1)
+        Me.TabFollowing.Controls.Add(Me.ButtonRefreshLiveFollowing)
         Me.TabFollowing.Controls.Add(Me.ListBox1)
         Me.TabFollowing.Controls.Add(Me.RichTextBox1)
         Me.TabFollowing.Location = New System.Drawing.Point(4, 22)
@@ -219,6 +236,38 @@ Partial Class MainForm
         Me.TabFollowing.TabIndex = 0
         Me.TabFollowing.Text = "Following"
         Me.TabFollowing.UseVisualStyleBackColor = True
+        '
+        'LabelStatus
+        '
+        Me.LabelStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelStatus.Location = New System.Drawing.Point(110, 404)
+        Me.LabelStatus.Name = "LabelStatus"
+        Me.LabelStatus.Size = New System.Drawing.Size(363, 35)
+        Me.LabelStatus.TabIndex = 16
+        Me.LabelStatus.Text = "Status"
+        Me.LabelStatus.Visible = False
+        '
+        'Button7
+        '
+        Me.Button7.Enabled = False
+        Me.Button7.Location = New System.Drawing.Point(6, 499)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(150, 23)
+        Me.Button7.TabIndex = 15
+        Me.Button7.Text = "Add to Multitwitch-List"
+        Me.Button7.UseVisualStyleBackColor = True
+        Me.Button7.Visible = False
+        '
+        'Button6
+        '
+        Me.Button6.Enabled = False
+        Me.Button6.Location = New System.Drawing.Point(6, 470)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(150, 23)
+        Me.Button6.TabIndex = 14
+        Me.Button6.Text = "Open Stream Only"
+        Me.Button6.UseVisualStyleBackColor = True
+        Me.Button6.Visible = False
         '
         'Label2
         '
@@ -289,10 +338,10 @@ Partial Class MainForm
         '
         Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeaderName, Me.ColumnHeaderPrev, Me.ColumnHeaderLogo, Me.ColumnHeaderURL})
         Me.ListView2.FullRowSelect = True
-        Me.ListView2.Location = New System.Drawing.Point(189, 224)
+        Me.ListView2.Location = New System.Drawing.Point(189, 189)
         Me.ListView2.MultiSelect = False
         Me.ListView2.Name = "ListView2"
-        Me.ListView2.Size = New System.Drawing.Size(462, 97)
+        Me.ListView2.Size = New System.Drawing.Size(462, 132)
         Me.ListView2.TabIndex = 5
         Me.ListView2.UseCompatibleStateImageBehavior = False
         Me.ListView2.View = System.Windows.Forms.View.Details
@@ -329,6 +378,16 @@ Partial Class MainForm
         '
         'TabGames
         '
+        Me.TabGames.Controls.Add(Me.LabelGLStatus)
+        Me.TabGames.Controls.Add(Me.ButtonGLAddToMulti)
+        Me.TabGames.Controls.Add(Me.ButtonGLOpenStream)
+        Me.TabGames.Controls.Add(Me.Label4)
+        Me.TabGames.Controls.Add(Me.ButtonGLOpenBrowserandChat)
+        Me.TabGames.Controls.Add(Me.LabelGLGame)
+        Me.TabGames.Controls.Add(Me.Label6)
+        Me.TabGames.Controls.Add(Me.LabelGLStreamer)
+        Me.TabGames.Controls.Add(Me.PictureBoxGLpreview)
+        Me.TabGames.Controls.Add(Me.PictureBoxGLlogo)
         Me.TabGames.Controls.Add(Me.Button4)
         Me.TabGames.Controls.Add(Me.Button3)
         Me.TabGames.Controls.Add(Me.RichTextBox2)
@@ -342,6 +401,112 @@ Partial Class MainForm
         Me.TabGames.TabIndex = 1
         Me.TabGames.Text = "Games"
         Me.TabGames.UseVisualStyleBackColor = True
+        '
+        'LabelGLStatus
+        '
+        Me.LabelGLStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelGLStatus.Location = New System.Drawing.Point(110, 397)
+        Me.LabelGLStatus.Name = "LabelGLStatus"
+        Me.LabelGLStatus.Size = New System.Drawing.Size(363, 35)
+        Me.LabelGLStatus.TabIndex = 26
+        Me.LabelGLStatus.Text = "Status"
+        Me.LabelGLStatus.Visible = False
+        '
+        'ButtonGLAddToMulti
+        '
+        Me.ButtonGLAddToMulti.Enabled = False
+        Me.ButtonGLAddToMulti.Location = New System.Drawing.Point(6, 492)
+        Me.ButtonGLAddToMulti.Name = "ButtonGLAddToMulti"
+        Me.ButtonGLAddToMulti.Size = New System.Drawing.Size(150, 23)
+        Me.ButtonGLAddToMulti.TabIndex = 25
+        Me.ButtonGLAddToMulti.Text = "Add to Multitwitch-List"
+        Me.ButtonGLAddToMulti.UseVisualStyleBackColor = True
+        Me.ButtonGLAddToMulti.Visible = False
+        '
+        'ButtonGLOpenStream
+        '
+        Me.ButtonGLOpenStream.Enabled = False
+        Me.ButtonGLOpenStream.Location = New System.Drawing.Point(6, 463)
+        Me.ButtonGLOpenStream.Name = "ButtonGLOpenStream"
+        Me.ButtonGLOpenStream.Size = New System.Drawing.Size(150, 23)
+        Me.ButtonGLOpenStream.TabIndex = 24
+        Me.ButtonGLOpenStream.Text = "Open Stream Only"
+        Me.ButtonGLOpenStream.UseVisualStyleBackColor = True
+        Me.ButtonGLOpenStream.Visible = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(476, 344)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(92, 13)
+        Me.Label4.TabIndex = 23
+        Me.Label4.Text = "Video Preview:"
+        Me.Label4.Visible = False
+        '
+        'ButtonGLOpenBrowserandChat
+        '
+        Me.ButtonGLOpenBrowserandChat.Location = New System.Drawing.Point(6, 434)
+        Me.ButtonGLOpenBrowserandChat.Name = "ButtonGLOpenBrowserandChat"
+        Me.ButtonGLOpenBrowserandChat.Size = New System.Drawing.Size(150, 23)
+        Me.ButtonGLOpenBrowserandChat.TabIndex = 22
+        Me.ButtonGLOpenBrowserandChat.Text = "Open Stream and Chat"
+        Me.ButtonGLOpenBrowserandChat.UseVisualStyleBackColor = True
+        Me.ButtonGLOpenBrowserandChat.Visible = False
+        '
+        'LabelGLGame
+        '
+        Me.LabelGLGame.AutoSize = True
+        Me.LabelGLGame.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelGLGame.Location = New System.Drawing.Point(110, 378)
+        Me.LabelGLGame.Name = "LabelGLGame"
+        Me.LabelGLGame.Size = New System.Drawing.Size(45, 13)
+        Me.LabelGLGame.TabIndex = 21
+        Me.LabelGLGame.Text = "Label5"
+        Me.LabelGLGame.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LabelGLGame.Visible = False
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(112, 361)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(50, 13)
+        Me.Label6.TabIndex = 20
+        Me.Label6.Text = "is playing"
+        Me.Label6.Visible = False
+        '
+        'LabelGLStreamer
+        '
+        Me.LabelGLStreamer.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.LabelGLStreamer.AutoSize = True
+        Me.LabelGLStreamer.Font = New System.Drawing.Font("Segoe UI Black", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelGLStreamer.Location = New System.Drawing.Point(108, 336)
+        Me.LabelGLStreamer.Name = "LabelGLStreamer"
+        Me.LabelGLStreamer.Size = New System.Drawing.Size(113, 25)
+        Me.LabelGLStreamer.TabIndex = 19
+        Me.LabelGLStreamer.Text = "streamer x"
+        Me.LabelGLStreamer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LabelGLStreamer.Visible = False
+        '
+        'PictureBoxGLpreview
+        '
+        Me.PictureBoxGLpreview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBoxGLpreview.Location = New System.Drawing.Point(479, 360)
+        Me.PictureBoxGLpreview.Name = "PictureBoxGLpreview"
+        Me.PictureBoxGLpreview.Size = New System.Drawing.Size(190, 150)
+        Me.PictureBoxGLpreview.TabIndex = 18
+        Me.PictureBoxGLpreview.TabStop = False
+        '
+        'PictureBoxGLlogo
+        '
+        Me.PictureBoxGLlogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBoxGLlogo.Location = New System.Drawing.Point(6, 336)
+        Me.PictureBoxGLlogo.Name = "PictureBoxGLlogo"
+        Me.PictureBoxGLlogo.Size = New System.Drawing.Size(96, 92)
+        Me.PictureBoxGLlogo.TabIndex = 17
+        Me.PictureBoxGLlogo.TabStop = False
         '
         'Button4
         '
@@ -364,7 +529,7 @@ Partial Class MainForm
         '
         'RichTextBox2
         '
-        Me.RichTextBox2.Location = New System.Drawing.Point(81, 403)
+        Me.RichTextBox2.Location = New System.Drawing.Point(188, 213)
         Me.RichTextBox2.Name = "RichTextBox2"
         Me.RichTextBox2.Size = New System.Drawing.Size(100, 96)
         Me.RichTextBox2.TabIndex = 4
@@ -373,7 +538,7 @@ Partial Class MainForm
         '
         'ListView4
         '
-        Me.ListView4.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
+        Me.ListView4.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7})
         Me.ListView4.FullRowSelect = True
         Me.ListView4.GridLines = True
         Me.ListView4.Location = New System.Drawing.Point(338, 37)
@@ -397,7 +562,26 @@ Partial Class MainForm
         'ColumnHeader3
         '
         Me.ColumnHeader3.Text = "Title"
-        Me.ColumnHeader3.Width = 196
+        Me.ColumnHeader3.Width = 165
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "PreviewLink"
+        Me.ColumnHeader4.Width = 0
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "LogoLink"
+        Me.ColumnHeader5.Width = 0
+        '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Game"
+        Me.ColumnHeader6.Width = 0
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "SW"
         '
         'ListView3
         '
@@ -433,7 +617,7 @@ Partial Class MainForm
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.AboutToolStripMenuItem, Me.RawrawToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.AboutToolStripMenuItem, Me.RawrawToolStripMenuItem, Me.DonateToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(707, 24)
@@ -491,37 +675,13 @@ Partial Class MainForm
         Me.RawrawToolStripMenuItem.Size = New System.Drawing.Size(111, 20)
         Me.RawrawToolStripMenuItem.Text = "© 2014 - raw_raw"
         '
-        'Button6
+        'DonateToolStripMenuItem
         '
-        Me.Button6.Enabled = False
-        Me.Button6.Location = New System.Drawing.Point(6, 470)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(150, 23)
-        Me.Button6.TabIndex = 14
-        Me.Button6.Text = "Open Stream Only"
-        Me.Button6.UseVisualStyleBackColor = True
-        Me.Button6.Visible = False
-        '
-        'Button7
-        '
-        Me.Button7.Enabled = False
-        Me.Button7.Location = New System.Drawing.Point(6, 499)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(150, 23)
-        Me.Button7.TabIndex = 15
-        Me.Button7.Text = "Add to Multitwitch-List"
-        Me.Button7.UseVisualStyleBackColor = True
-        Me.Button7.Visible = False
-        '
-        'LabelStatus
-        '
-        Me.LabelStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelStatus.Location = New System.Drawing.Point(110, 404)
-        Me.LabelStatus.Name = "LabelStatus"
-        Me.LabelStatus.Size = New System.Drawing.Size(363, 35)
-        Me.LabelStatus.TabIndex = 16
-        Me.LabelStatus.Text = "Status"
-        Me.LabelStatus.Visible = False
+        Me.DonateToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.DonateToolStripMenuItem.ForeColor = System.Drawing.SystemColors.MenuHighlight
+        Me.DonateToolStripMenuItem.Name = "DonateToolStripMenuItem"
+        Me.DonateToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+        Me.DonateToolStripMenuItem.Text = "Donate"
         '
         'MainForm
         '
@@ -541,6 +701,9 @@ Partial Class MainForm
         CType(Me.PictureBoxPreview, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBoxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabGames.ResumeLayout(False)
+        Me.TabGames.PerformLayout()
+        CType(Me.PictureBoxGLpreview, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxGLlogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -549,7 +712,7 @@ Partial Class MainForm
     End Sub
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents ButtonRefreshLiveFollowing As System.Windows.Forms.Button
     Friend WithEvents ListView1 As System.Windows.Forms.ListView
     Friend WithEvents lw_streamer As System.Windows.Forms.ColumnHeader
     Friend WithEvents lw_viewers As System.Windows.Forms.ColumnHeader
@@ -599,5 +762,20 @@ Partial Class MainForm
     Friend WithEvents Button7 As System.Windows.Forms.Button
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents LabelStatus As System.Windows.Forms.Label
+    Friend WithEvents LabelGLStatus As System.Windows.Forms.Label
+    Friend WithEvents ButtonGLAddToMulti As System.Windows.Forms.Button
+    Friend WithEvents ButtonGLOpenStream As System.Windows.Forms.Button
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents ButtonGLOpenBrowserandChat As System.Windows.Forms.Button
+    Friend WithEvents LabelGLGame As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents LabelGLStreamer As System.Windows.Forms.Label
+    Friend WithEvents PictureBoxGLpreview As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBoxGLlogo As System.Windows.Forms.PictureBox
+    Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents DonateToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

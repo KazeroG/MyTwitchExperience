@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FormWatchStream
+Partial Class FormDonate
     Inherits System.Windows.Forms.Form
 
     'Das Formular überschreibt den Löschvorgang, um die Komponentenliste zu bereinigen.
@@ -23,55 +23,40 @@ Partial Class FormWatchStream
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.WebBrowser2 = New System.Windows.Forms.WebBrowser()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'WebBrowser1
         '
-        Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.WebBrowser1.Location = New System.Drawing.Point(0, 0)
+        Me.WebBrowser1.Location = New System.Drawing.Point(23, 127)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.ScriptErrorsSuppressed = True
         Me.WebBrowser1.ScrollBarsEnabled = False
-        Me.WebBrowser1.Size = New System.Drawing.Size(749, 540)
+        Me.WebBrowser1.Size = New System.Drawing.Size(701, 398)
         Me.WebBrowser1.TabIndex = 0
         '
-        'RichTextBox1
+        'Label1
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(478, 247)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(100, 96)
-        Me.RichTextBox1.TabIndex = 1
-        Me.RichTextBox1.Text = ""
-        Me.RichTextBox1.Visible = False
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(220, 45)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(244, 79)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "You like my work and would like to thank me to keep me motivated? Every donation " & _
+    "is appreciated. Thank you <3"
         '
-        'WebBrowser2
-        '
-        Me.WebBrowser2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.WebBrowser2.Location = New System.Drawing.Point(749, 0)
-        Me.WebBrowser2.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.WebBrowser2.Name = "WebBrowser2"
-        Me.WebBrowser2.ScrollBarsEnabled = False
-        Me.WebBrowser2.Size = New System.Drawing.Size(363, 540)
-        Me.WebBrowser2.TabIndex = 2
-        '
-        'FormWatchStream
+        'FormDonate
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(1112, 540)
-        Me.Controls.Add(Me.WebBrowser2)
-        Me.Controls.Add(Me.RichTextBox1)
+        Me.ClientSize = New System.Drawing.Size(736, 537)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.WebBrowser1)
-        Me.Name = "FormWatchStream"
-        Me.Text = "Watching "
+        Me.Name = "FormDonate"
+        Me.Text = "Donate"
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
-    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
-    Friend WithEvents WebBrowser2 As System.Windows.Forms.WebBrowser
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class
