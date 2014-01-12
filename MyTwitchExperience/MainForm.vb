@@ -81,6 +81,7 @@ Public Class MainForm
             Dim logolink As String
             Dim streamerlabeltext As String
             Dim game As String
+            Dim statusmessage As String
             logolink = "http://www-cdn.jtvnw.net/images/xarth/header_logo.png"
             previewlink = "http://www-cdn.jtvnw.net/images/xarth/header_logo.png"
 
@@ -90,7 +91,7 @@ Public Class MainForm
                 logolink = ListView2.Items(item.Index).SubItems(2).ToString
                 streamerlabeltext = ListView2.Items(item.Index).ToString
                 game = ListView1.Items(item.Index).SubItems(2).ToString
-
+                statusmessage = ListView1.Items(item.Index).SubItems(3).ToString
 
             Next
             'FORMAT LABELS
@@ -98,6 +99,8 @@ Public Class MainForm
             game = game.Remove(game.IndexOf("}"), 1)
             streamerlabeltext = streamerlabeltext.Substring(streamerlabeltext.IndexOf("{") + 1)
             streamerlabeltext = streamerlabeltext.Remove(streamerlabeltext.IndexOf("}"), 1)
+            statusmessage = statusmessage.Substring(statusmessage.IndexOf("{") + 1)
+            statusmessage = statusmessage.Remove(statusmessage.IndexOf("}"), 1)
             'FORMAT IMAGE LINK
             logolink = logolink.Substring(logolink.IndexOf("{") + 1)
             logolink = logolink.Remove(logolink.IndexOf("}"), 1)
@@ -121,12 +124,16 @@ Public Class MainForm
             
             'SET LABEL TEXT AND VISIBILITY
             Button5.Visible = True
+            Button6.Visible = True
+            Button7.Visible = True
             LabelGame.Text = game
             LabelStreamerName.Text = streamerlabeltext
+            LabelStatus.Text = statusmessage
             Label1.Visible = True
             Label2.Visible = True
             LabelGame.Visible = True
             LabelStreamerName.Visible = True
+            LabelStatus.Visible = True
             'PREPARE SOURCE FOR SMALL VIEDO WINDOW
             'RichTextBox3.Clear()
             'RichTextBox3.LoadFile("embed.txt", RichTextBoxStreamType.PlainText)
@@ -136,7 +143,7 @@ Public Class MainForm
             'RichTextBox3.Text = RichTextBox3.Text.Replace("REPLACEWIDTH", "385")
             'WebBrowser1.DocumentText = RichTextBox3.Text
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            'MsgBox(ex.ToString)
         End Try
         
     End Sub

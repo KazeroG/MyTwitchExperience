@@ -41,6 +41,11 @@ Partial Class MainForm
         Me.DetailedInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabFollowing = New System.Windows.Forms.TabPage()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.LabelGame = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LabelStreamerName = New System.Windows.Forms.Label()
         Me.PictureBoxPreview = New System.Windows.Forms.PictureBox()
         Me.ListView2 = New System.Windows.Forms.ListView()
         Me.ColumnHeaderName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -49,8 +54,13 @@ Partial Class MainForm
         Me.ColumnHeaderURL = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.PictureBoxLogo = New System.Windows.Forms.PictureBox()
         Me.TabGames = New System.Windows.Forms.TabPage()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
         Me.ListView4 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ListView3 = New System.Windows.Forms.ListView()
         Me.ColumnHeaderGame = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeaderViewers = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -63,16 +73,9 @@ Partial Class MainForm
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RawrawToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LabelStreamerName = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.LabelGame = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.LabelStatus = New System.Windows.Forms.Label()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabFollowing.SuspendLayout()
@@ -194,6 +197,9 @@ Partial Class MainForm
         '
         'TabFollowing
         '
+        Me.TabFollowing.Controls.Add(Me.LabelStatus)
+        Me.TabFollowing.Controls.Add(Me.Button7)
+        Me.TabFollowing.Controls.Add(Me.Button6)
         Me.TabFollowing.Controls.Add(Me.Label2)
         Me.TabFollowing.Controls.Add(Me.Button5)
         Me.TabFollowing.Controls.Add(Me.LabelGame)
@@ -213,6 +219,62 @@ Partial Class MainForm
         Me.TabFollowing.TabIndex = 0
         Me.TabFollowing.Text = "Following"
         Me.TabFollowing.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(476, 351)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(92, 13)
+        Me.Label2.TabIndex = 13
+        Me.Label2.Text = "Video Preview:"
+        Me.Label2.Visible = False
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(6, 441)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(150, 23)
+        Me.Button5.TabIndex = 12
+        Me.Button5.Text = "Open Stream and Chat"
+        Me.Button5.UseVisualStyleBackColor = True
+        Me.Button5.Visible = False
+        '
+        'LabelGame
+        '
+        Me.LabelGame.AutoSize = True
+        Me.LabelGame.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelGame.Location = New System.Drawing.Point(110, 385)
+        Me.LabelGame.Name = "LabelGame"
+        Me.LabelGame.Size = New System.Drawing.Size(70, 13)
+        Me.LabelGame.TabIndex = 9
+        Me.LabelGame.Text = "LabelGame"
+        Me.LabelGame.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LabelGame.Visible = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(112, 368)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(50, 13)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "is playing"
+        Me.Label1.Visible = False
+        '
+        'LabelStreamerName
+        '
+        Me.LabelStreamerName.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.LabelStreamerName.AutoSize = True
+        Me.LabelStreamerName.Font = New System.Drawing.Font("Segoe UI Black", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelStreamerName.Location = New System.Drawing.Point(108, 343)
+        Me.LabelStreamerName.Name = "LabelStreamerName"
+        Me.LabelStreamerName.Size = New System.Drawing.Size(113, 25)
+        Me.LabelStreamerName.TabIndex = 7
+        Me.LabelStreamerName.Text = "streamer x"
+        Me.LabelStreamerName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LabelStreamerName.Visible = False
         '
         'PictureBoxPreview
         '
@@ -276,10 +338,29 @@ Partial Class MainForm
         Me.TabGames.Location = New System.Drawing.Point(4, 22)
         Me.TabGames.Name = "TabGames"
         Me.TabGames.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabGames.Size = New System.Drawing.Size(675, 617)
+        Me.TabGames.Size = New System.Drawing.Size(675, 523)
         Me.TabGames.TabIndex = 1
         Me.TabGames.Text = "Games"
         Me.TabGames.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(252, 15)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(80, 23)
+        Me.Button4.TabIndex = 6
+        Me.Button4.Text = "Next 100"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Enabled = False
+        Me.Button3.Location = New System.Drawing.Point(166, 15)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(80, 23)
+        Me.Button3.TabIndex = 5
+        Me.Button3.Text = "Previous 100"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'RichTextBox2
         '
@@ -302,6 +383,21 @@ Partial Class MainForm
         Me.ListView4.TabIndex = 3
         Me.ListView4.UseCompatibleStateImageBehavior = False
         Me.ListView4.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Streamer"
+        Me.ColumnHeader1.Width = 75
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Viewers"
+        Me.ColumnHeader2.Width = 52
+        '
+        'ColumnHeader3
+        '
+        Me.ColumnHeader3.Text = "Title"
+        Me.ColumnHeader3.Width = 196
         '
         'ListView3
         '
@@ -395,94 +491,37 @@ Partial Class MainForm
         Me.RawrawToolStripMenuItem.Size = New System.Drawing.Size(111, 20)
         Me.RawrawToolStripMenuItem.Text = "© 2014 - raw_raw"
         '
-        'LabelStreamerName
+        'Button6
         '
-        Me.LabelStreamerName.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.LabelStreamerName.AutoSize = True
-        Me.LabelStreamerName.Font = New System.Drawing.Font("Segoe UI Black", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelStreamerName.Location = New System.Drawing.Point(222, 350)
-        Me.LabelStreamerName.Name = "LabelStreamerName"
-        Me.LabelStreamerName.Size = New System.Drawing.Size(36, 25)
-        Me.LabelStreamerName.TabIndex = 7
-        Me.LabelStreamerName.Text = "lol"
-        Me.LabelStreamerName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.LabelStreamerName.Visible = False
+        Me.Button6.Enabled = False
+        Me.Button6.Location = New System.Drawing.Point(6, 470)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(150, 23)
+        Me.Button6.TabIndex = 14
+        Me.Button6.Text = "Open Stream Only"
+        Me.Button6.UseVisualStyleBackColor = True
+        Me.Button6.Visible = False
         '
-        'Label1
+        'Button7
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(233, 375)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(50, 13)
-        Me.Label1.TabIndex = 8
-        Me.Label1.Text = "is playing"
-        Me.Label1.Visible = False
+        Me.Button7.Enabled = False
+        Me.Button7.Location = New System.Drawing.Point(6, 499)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(150, 23)
+        Me.Button7.TabIndex = 15
+        Me.Button7.Text = "Add to Multitwitch-List"
+        Me.Button7.UseVisualStyleBackColor = True
+        Me.Button7.Visible = False
         '
-        'LabelGame
+        'LabelStatus
         '
-        Me.LabelGame.AutoSize = True
-        Me.LabelGame.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelGame.Location = New System.Drawing.Point(224, 389)
-        Me.LabelGame.Name = "LabelGame"
-        Me.LabelGame.Size = New System.Drawing.Size(70, 13)
-        Me.LabelGame.TabIndex = 9
-        Me.LabelGame.Text = "LabelGame"
-        Me.LabelGame.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.LabelGame.Visible = False
-        '
-        'Button3
-        '
-        Me.Button3.Enabled = False
-        Me.Button3.Location = New System.Drawing.Point(166, 15)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(80, 23)
-        Me.Button3.TabIndex = 5
-        Me.Button3.Text = "Previous 100"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(252, 15)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(80, 23)
-        Me.Button4.TabIndex = 6
-        Me.Button4.Text = "Next 100"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'ColumnHeader1
-        '
-        Me.ColumnHeader1.Text = "Streamer"
-        Me.ColumnHeader1.Width = 75
-        '
-        'ColumnHeader2
-        '
-        Me.ColumnHeader2.Text = "Viewers"
-        Me.ColumnHeader2.Width = 52
-        '
-        'ColumnHeader3
-        '
-        Me.ColumnHeader3.Text = "Title"
-        Me.ColumnHeader3.Width = 196
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(6, 441)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(150, 23)
-        Me.Button5.TabIndex = 12
-        Me.Button5.Text = "Open Stream and Chat"
-        Me.Button5.UseVisualStyleBackColor = True
-        Me.Button5.Visible = False
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(476, 351)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(73, 13)
-        Me.Label2.TabIndex = 13
-        Me.Label2.Text = "Video Thumb:"
-        Me.Label2.Visible = False
+        Me.LabelStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelStatus.Location = New System.Drawing.Point(110, 404)
+        Me.LabelStatus.Name = "LabelStatus"
+        Me.LabelStatus.Size = New System.Drawing.Size(363, 35)
+        Me.LabelStatus.TabIndex = 16
+        Me.LabelStatus.Text = "Status"
+        Me.LabelStatus.Visible = False
         '
         'MainForm
         '
@@ -557,5 +596,8 @@ Partial Class MainForm
     Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Button7 As System.Windows.Forms.Button
+    Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents LabelStatus As System.Windows.Forms.Label
 
 End Class
