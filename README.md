@@ -38,7 +38,7 @@ MyTwitchExperience lets you browse Twitch.tv without a browser.
 <br />-Initial Release
 
 
-Download compiled version:
+***Download compiled version:***
 <br />http://raw-raw.de/mtedl/MyTwitchExperience.zip
 
 Virustotal:
