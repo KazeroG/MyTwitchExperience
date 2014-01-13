@@ -636,7 +636,7 @@ Partial Class MainForm
         '
         Me.SettingsToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SettingsToolStripMenuItem.Text = "Settings"
         '
         'ToolsToolStripMenuItem
@@ -644,21 +644,20 @@ Partial Class MainForm
         Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditBlockListToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
-        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ToolsToolStripMenuItem.Text = "Tools"
         '
         'EditBlockListToolStripMenuItem
         '
-        Me.EditBlockListToolStripMenuItem.Enabled = False
         Me.EditBlockListToolStripMenuItem.Name = "EditBlockListToolStripMenuItem"
-        Me.EditBlockListToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
-        Me.EditBlockListToolStripMenuItem.Text = "Edit Block List *SOON*"
+        Me.EditBlockListToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EditBlockListToolStripMenuItem.Text = "Edit Block List"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'AboutToolStripMenuItem

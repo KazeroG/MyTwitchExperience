@@ -11,18 +11,7 @@ Public Class MainForm
     Dim gamelistoffset As Integer = 0
     Public watch_user As String
 
-    Sub Get_Blocklist()
-        Dim getblockClient As New System.Net.WebClient
-        getblockClient.Headers.Add("Accept", "application/vnd.twitchtv.v2+json")
-        getblockClient.Headers.Add("Authorization", "OAuth " + My.Settings.authkey)
-        Dim result As String = getblockClient.DownloadString("https://api.twitch.tv/kraken/users/" + My.Settings.username + "/blocks?limit=100")
-        RichTextBox1.AppendText(result)
-        Dim blocklist As New JObject
-        blocklist = JsonConvert.DeserializeObject(result)
-        For x As Integer = 0 To blocklist.Item("blocks").Count - 1
-            ListBox1.Items.Add(blocklist.Item("blocks").Item(x).Item("user").Item("name").ToString)
-        Next
-    End Sub
+    
 
     Sub Get_Following_Live()
         Dim getlivefollowingClient As New System.Net.WebClient
@@ -57,6 +46,8 @@ Public Class MainForm
                 MsgBox("503 - Server unavailable. Try again soon.")
             ElseIf ex.ToString.Contains("(502)") Then
                 MsgBox("502 - Gateway Error. Try again soon.")
+            ElseIf ex.ToString.Contains("(401)") Then
+                MsgBox("401 Unauthorized - Authentication Error. Request a new Token in Settings!")
             Else
                 MsgBox(ex.ToString)
             End If
@@ -131,7 +122,15 @@ Public Class MainForm
             LabelStreamerName.Visible = True
             LabelStatus.Visible = True
         Catch ex As Exception
-            'MsgBox(ex.ToString)
+            If ex.ToString.Contains("(503)") Then
+                MsgBox("503 - Server unavailable. Try again soon.")
+            ElseIf ex.ToString.Contains("(502)") Then
+                MsgBox("502 - Gateway Error. Try again soon.")
+            ElseIf ex.ToString.Contains("(401)") Then
+                MsgBox("401 Unauthorized - Authentication Error. Request a new Token in Settings!")
+            Else
+                MsgBox(ex.ToString)
+            End If
         End Try
     End Sub
 
@@ -148,16 +147,28 @@ Public Class MainForm
     End Sub
 
     Private Sub InBrowserToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InBrowserToolStripMenuItem.Click
-        Dim x As Integer
-        x = ListView1.FocusedItem.Index
-        Dim getlivefollowingClient As New System.Net.WebClient
-        getlivefollowingClient.Headers.Add("Accept", "application/vnd.twitchtv.v2+json")
-        getlivefollowingClient.Headers.Add("Authorization", "OAuth " + My.Settings.authkey)
-        Dim result As String = getlivefollowingClient.DownloadString("https://api.twitch.tv/kraken/streams/followed?limit=100")
-        RichTextBox1.AppendText(result)
-        Dim streamlist As New JObject
-        streamlist = JsonConvert.DeserializeObject(result)
-        Process.Start(streamlist.Item("streams").Item(x).Item("channel").Item("url").ToString.Replace("www", My.Settings.locale))
+        Try
+            Dim x As Integer
+            x = ListView1.FocusedItem.Index
+            Dim getlivefollowingClient As New System.Net.WebClient
+            getlivefollowingClient.Headers.Add("Accept", "application/vnd.twitchtv.v2+json")
+            getlivefollowingClient.Headers.Add("Authorization", "OAuth " + My.Settings.authkey)
+            Dim result As String = getlivefollowingClient.DownloadString("https://api.twitch.tv/kraken/streams/followed?limit=100")
+            RichTextBox1.AppendText(result)
+            Dim streamlist As New JObject
+            streamlist = JsonConvert.DeserializeObject(result)
+            Process.Start(streamlist.Item("streams").Item(x).Item("channel").Item("url").ToString.Replace("www", My.Settings.locale))
+        Catch ex As Exception
+            If ex.ToString.Contains("(503)") Then
+                MsgBox("503 - Server unavailable. Try again soon.")
+            ElseIf ex.ToString.Contains("(502)") Then
+                MsgBox("502 - Gateway Error. Try again soon.")
+            ElseIf ex.ToString.Contains("(401)") Then
+                MsgBox("401 Unauthorized - Authentication Error. Request a new Token in Settings!")
+            Else
+                MsgBox(ex.ToString)
+            End If
+        End Try
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs)
@@ -207,6 +218,8 @@ Public Class MainForm
                 MsgBox("503 - Server unavailable. Try again soon.")
             ElseIf ex.ToString.Contains("(502)") Then
                 MsgBox("502 - Gateway Error. Try again soon.")
+            ElseIf ex.ToString.Contains("(401)") Then
+                MsgBox("401 Unauthorized - Authentication Error. Request a new Token in Settings!")
             Else
                 MsgBox(ex.ToString)
             End If
@@ -237,6 +250,8 @@ Public Class MainForm
                 MsgBox("503 - Server unavailable. Try again soon.")
             ElseIf ex.ToString.Contains("(502)") Then
                 MsgBox("502 - Gateway Error. Try again soon.")
+            ElseIf ex.ToString.Contains("(401)") Then
+                MsgBox("401 Unauthorized - Authentication Error. Request a new Token in Settings!")
             Else
                 MsgBox(ex.ToString)
             End If
@@ -345,7 +360,15 @@ Public Class MainForm
             LabelGLStreamer.Visible = True
             LabelGLStatus.Visible = True
         Catch ex As Exception
-            'MsgBox(ex.ToString)
+            If ex.ToString.Contains("(503)") Then
+                MsgBox("503 - Server unavailable. Try again soon.")
+            ElseIf ex.ToString.Contains("(502)") Then
+                MsgBox("502 - Gateway Error. Try again soon.")
+            ElseIf ex.ToString.Contains("(401)") Then
+                MsgBox("401 Unauthorized - Authentication Error. Request a new Token in Settings!")
+            Else
+                MsgBox(ex.ToString)
+            End If
         End Try
     End Sub
 
@@ -356,5 +379,9 @@ Public Class MainForm
 
     Private Sub DonateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DonateToolStripMenuItem.Click
         FormDonate.Show()
+    End Sub
+
+    Private Sub EditBlockListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditBlockListToolStripMenuItem.Click
+        FormBlockList.Show()
     End Sub
 End Class

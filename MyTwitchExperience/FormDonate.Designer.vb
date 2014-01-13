@@ -28,19 +28,20 @@ Partial Class FormDonate
         '
         'WebBrowser1
         '
-        Me.WebBrowser1.Location = New System.Drawing.Point(23, 127)
+        Me.WebBrowser1.Location = New System.Drawing.Point(23, 47)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
         Me.WebBrowser1.ScrollBarsEnabled = False
-        Me.WebBrowser1.Size = New System.Drawing.Size(701, 398)
+        Me.WebBrowser1.Size = New System.Drawing.Size(701, 478)
         Me.WebBrowser1.TabIndex = 0
         '
         'Label1
         '
+        Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(220, 45)
+        Me.Label1.Location = New System.Drawing.Point(51, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(244, 79)
+        Me.Label1.Size = New System.Drawing.Size(652, 13)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "You like my work and would like to thank me to keep me motivated? Every donation " & _
     "is appreciated. Thank you <3"
@@ -55,6 +56,7 @@ Partial Class FormDonate
         Me.Name = "FormDonate"
         Me.Text = "Donate"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser

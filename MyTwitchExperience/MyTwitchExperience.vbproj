@@ -110,6 +110,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormBlockList.Designer.vb">
+      <DependentUpon>FormBlockList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBlockList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormDonate.Designer.vb">
       <DependentUpon>FormDonate.vb</DependentUpon>
     </Compile>
@@ -158,6 +164,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormBlockList.resx">
+      <DependentUpon>FormBlockList.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDonate.resx">
       <DependentUpon>FormDonate.vb</DependentUpon>
     </EmbeddedResource>
