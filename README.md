@@ -2,8 +2,7 @@ MyTwitchExperience
 ==================
 Needs the Newtonsoft JSON Package!
 
-~~Needs livestreamer in folder "livestreamer" (see compiled zip) for VLC option!~~
-Not allowed due to API ToS.
+Needs livestreamer in folder "livestreamer" (see compiled zip) for VLC option!
 
 ***What is MyTwitchExperience?***
 
@@ -14,7 +13,7 @@ MyTwitchExperience lets you browse Twitch.tv without a browser.
 
 ***Features so far:***
 <br />[x]Read followers list
-<br />[x]Play video in Standard-Browser, ~~VLC~~ or directly in the application
+<br />[x]Play video in Standard-Browser, VLC or directly in the application
 <br />[X]Browse games
 
 ***Features to come:***
