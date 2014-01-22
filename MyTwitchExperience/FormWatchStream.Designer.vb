@@ -22,6 +22,7 @@ Partial Class FormWatchStream
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormWatchStream))
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.WebBrowser2 = New System.Windows.Forms.WebBrowser()
@@ -66,6 +67,7 @@ Partial Class FormWatchStream
         Me.Controls.Add(Me.WebBrowser2)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.WebBrowser1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormWatchStream"
         Me.Text = "Watching "
         Me.ResumeLayout(False)

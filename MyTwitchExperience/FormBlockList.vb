@@ -1,7 +1,6 @@
 ﻿Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 Imports System.Net
-Imports System.IO
 
 Public Class FormBlockList
 
@@ -60,5 +59,9 @@ Public Class FormBlockList
         Next
         ListBox1.Items.Clear()
         Get_Blocklist()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        FormAddBlock.Show()
     End Sub
 End Class

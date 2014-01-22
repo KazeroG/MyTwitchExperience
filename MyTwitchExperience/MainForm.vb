@@ -367,7 +367,7 @@ Public Class MainForm
             ElseIf ex.ToString.Contains("(401)") Then
                 MsgBox("401 Unauthorized - Authentication Error. Request a new Token in Settings!")
             Else
-                MsgBox(ex.ToString)
+                'MsgBox(ex.ToString)
             End If
         End Try
     End Sub

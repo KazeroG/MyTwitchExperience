@@ -22,6 +22,7 @@ Partial Class FormSetup
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormSetup))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBoxUsername = New System.Windows.Forms.TextBox()
@@ -229,8 +230,9 @@ Partial Class FormSetup
         Me.Controls.Add(Me.TextBoxUsername)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormSetup"
-        Me.Text = "Config-Wizard"
+        Me.Text = "Settings"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
