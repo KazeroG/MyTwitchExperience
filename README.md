@@ -44,10 +44,10 @@ MyTwitchExperience lets you browse Twitch.tv without a browser.
 
 
 ***Download compiled version:***
-<br />http://raw-raw.de/mtedl/MyTwitchExperience.zip
+<br />http://raw-raw.de/mtedl/MyTwitchExperience22.01.2014.zip
 
 Virustotal:
-<br />https://www.virustotal.com/de/file/b97f0fa76a199d6ce7ff20167f814b78fc1e435b4c898031111c60f22f71a6c2/analysis/1389563747/
+<br />https://www.virustotal.com/de/file/24dc67c294ecabdde3bd987c3f0696055e318e78fcc00797bb6fc09cbdf18741/analysis/1390406962/
 
 I am not affiliated with Twitch/Justin.tv!
 ==================
