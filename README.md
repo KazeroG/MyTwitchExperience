@@ -26,6 +26,11 @@ MyTwitchExperience lets you browse Twitch.tv without a browser.
 
 
 ***Changelog:***
+<br />22.01.2014
+<br />-Blocklist editor/viewer completed
+<br />-Icons for all Windows
+<br />-catching all common API error responses
+
 <br />12.01.2014
 <br />-"Browse games" complete
 <br />-Donation Window Added
