@@ -31,7 +31,7 @@ MyTwitchExperience lets you browse Twitch.tv without a browser.
 <br />-Icons for all Windows
 <br />-catching all common API error responses
 
-<br />12.01.2014
+12.01.2014
 <br />-"Browse games" complete
 <br />-Donation Window Added
 <br />-catching some API error responses. TBC!
