@@ -15,10 +15,9 @@ MyTwitchExperience lets you browse Twitch.tv without a browser.
 <br />[x]Read followers list
 <br />[x]Play video in Standard-Browser, VLC or directly in the application
 <br />[X]Browse games
-<br />[X]View/delete users from Block list
+<br />[X]View/delete users from and add Users to Block list
 
 ***Features to come:***
-<br />[ ]Add users to Block list
 <br />[ ]Add "Top Channels"
 <br />[ ]View/Edit Block list
 <br />[ ]Private Messaging
