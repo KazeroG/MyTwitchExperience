@@ -10,6 +10,8 @@ Screenshot: (to be updated soon) http://raw-raw.de/mtedl/mte_screenshot.jpg
 
 MyTwitchExperience lets you browse Twitch.tv without a browser.
 
+NEXT UP: Adding "Top Channels"
+
 
 ***Features so far:***
 <br />[x]Read followers list
@@ -20,9 +22,7 @@ MyTwitchExperience lets you browse Twitch.tv without a browser.
 
 ***Features to come:***
 <br />[ ]Add "Top Channels"
-<br />[ ]View/Edit Block list
-<br />[ ]Private Messaging
-<br />[ ]Channel Description can be displayed in new window
+<br />[ ]Private Messaging (maybe)
 <br />[ ]***Notification System***
 
 
