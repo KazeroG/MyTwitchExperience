@@ -110,6 +110,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChannelInfo.Designer.vb">
+      <DependentUpon>ChannelInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChannelInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormAddBlock.Designer.vb">
       <DependentUpon>FormAddBlock.vb</DependentUpon>
     </Compile>
@@ -170,6 +176,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ChannelInfo.resx">
+      <DependentUpon>ChannelInfo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAddBlock.resx">
       <DependentUpon>FormAddBlock.vb</DependentUpon>
     </EmbeddedResource>

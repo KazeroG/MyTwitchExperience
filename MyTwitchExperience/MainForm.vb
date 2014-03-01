@@ -9,6 +9,9 @@ Public Class MainForm
 
     Dim busy As Boolean
     Dim gamelistoffset As Integer = 0
+    Dim streamlistoffset As Integer = 0
+    Dim selectedgame As String = ""
+    Public selectedchannelname As String
     Public watch_user As String
 
     
@@ -84,6 +87,9 @@ Public Class MainForm
                 statusmessage = ListView1.Items(item.Index).SubItems(3).ToString
             Next
             'FORMAT LABELS
+            If IsNothing(game) Then
+                Exit Sub 'catching some error.. it tries to run this sub with no info once. aborting then.
+            End If
             game = game.Substring(game.IndexOf("{") + 1)
             game = game.Remove(game.IndexOf("}"), 1)
             streamerlabeltext = streamerlabeltext.Substring(streamerlabeltext.IndexOf("{") + 1)
@@ -129,7 +135,7 @@ Public Class MainForm
             ElseIf ex.ToString.Contains("(401)") Then
                 MsgBox("401 Unauthorized - Authentication Error. Request a new Token in Settings!")
             Else
-                MsgBox(ex.ToString)
+                'MsgBox(ex.ToString)
             End If
         End Try
     End Sub
@@ -213,6 +219,10 @@ Public Class MainForm
                 ListView3.EndUpdate()
                 ListView3.Update()
             Next
+            Dim offsetmax As Integer = gamelistoffset + 99
+            LabelOffsetGL.Visible = True
+            LabelOffsetGL.Text = ("(Showing " + gamelistoffset.ToString + " to " + offsetmax.ToString + " out of " + streamlist.Item("_total").ToString + ")")
+
         Catch ex As Exception
             If ex.ToString.Contains("(503)") Then
                 MsgBox("503 - Server unavailable. Try again soon.")
@@ -229,7 +239,7 @@ Public Class MainForm
     Sub Get_Channels_For_Game(ByRef formattedgamename As String)
         Try
             Dim getchannelsClient As New System.Net.WebClient
-            Dim result As String = getchannelsClient.DownloadString("https://api.twitch.tv/kraken/streams?game=" + formattedgamename + "&limit=100")
+            Dim result As String = getchannelsClient.DownloadString("https://api.twitch.tv/kraken/streams?game=" + formattedgamename + "&limit=100&offset=" + streamlistoffset.ToString)
             RichTextBox2.AppendText(result)
             Dim streamlist As New JObject
             streamlist = JsonConvert.DeserializeObject(result)
@@ -245,6 +255,9 @@ Public Class MainForm
                 ListView4.EndUpdate()
                 ListView4.Update()
             Next
+            If CInt(streamlist.Item("_total")) >= 100 Then
+                Button9.Enabled = True
+            End If
         Catch ex As Exception
             If ex.ToString.Contains("(503)") Then
                 MsgBox("503 - Server unavailable. Try again soon.")
@@ -266,10 +279,23 @@ Public Class MainForm
 
     Private Sub ListView3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView3.SelectedIndexChanged
         ListView4.Items.Clear()
+        Button8.Enabled = False
+        Button9.Enabled = False
+
+        streamlistoffset = 0
         Dim gamename As String
         For Each item As ListViewItem In ListView3.SelectedItems()
             gamename = item.ToString
         Next
+        selectedgame = gamename
+        Try
+            selectedgame = selectedgame.Substring(selectedgame.IndexOf("{") + 1)
+            selectedgame = selectedgame.Remove(selectedgame.IndexOf("}"), 1)
+        Catch ex As Exception
+
+        End Try
+        
+
         Try
             gamename = gamename.Substring(gamename.IndexOf("{") + 1)
             gamename = gamename.Remove(gamename.IndexOf("}"), 1)
@@ -281,7 +307,27 @@ Public Class MainForm
         Catch ex As Exception
         End Try
         RichTextBox2.Clear()
-        Get_Channels_For_Game(gamename)
+        If IsNothing(gamename) Then
+            Exit Sub 'preventing request being made with no data. happens once every reselection
+        Else
+            Get_Channels_For_Game(gamename)
+        End If
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        streamlistoffset += 100
+        ListView4.Items.Clear()
+        Button8.Enabled = True
+        Get_Channels_For_Game(selectedgame)
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        streamlistoffset -= 100
+        If streamlistoffset = 0 Then
+            Button8.Enabled = False
+        End If
+        ListView4.Items.Clear()
+        Get_Channels_For_Game(selectedgame)
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
@@ -383,5 +429,15 @@ Public Class MainForm
 
     Private Sub EditBlockListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditBlockListToolStripMenuItem.Click
         FormBlockList.Show()
+    End Sub
+
+    Private Sub LabelStreamerName_Click(sender As Object, e As EventArgs) Handles LabelStreamerName.Click
+        selectedchannelname = LabelStreamerName.Text
+        ChannelInfo.Show()
+    End Sub
+
+    Private Sub DetailedInfoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DetailedInfoToolStripMenuItem.Click
+        selectedchannelname = LabelStreamerName.Text
+        ChannelInfo.Show()
     End Sub
 End Class

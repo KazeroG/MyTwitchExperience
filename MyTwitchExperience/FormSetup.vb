@@ -18,6 +18,7 @@ Public Class FormSetup
             LabelOAuthToken.Text = My.Settings.authkey
             LabelVLCdir.Text = My.Settings.vlcdir
             ComboBoxQuality.Text = My.Settings.quality
+            Me.TopMost = True
         Catch ex As Exception
 
         End Try
@@ -45,5 +46,9 @@ Public Class FormSetup
         For i As Integer = 0 To files.length - 1
             System.IO.File.Delete(files(i))
         Next
+    End Sub
+
+    Private Sub FormSetup_MouseEnter(sender As Object, e As EventArgs) Handles MyBase.MouseEnter
+        Me.TopMost = False
     End Sub
 End Class

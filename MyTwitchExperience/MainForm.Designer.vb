@@ -57,6 +57,9 @@ Partial Class MainForm
         Me.ColumnHeaderURL = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.PictureBoxLogo = New System.Windows.Forms.PictureBox()
         Me.TabGames = New System.Windows.Forms.TabPage()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.LabelOffsetGL = New System.Windows.Forms.Label()
         Me.LabelGLStatus = New System.Windows.Forms.Label()
         Me.ButtonGLAddToMulti = New System.Windows.Forms.Button()
         Me.ButtonGLOpenStream = New System.Windows.Forms.Button()
@@ -168,7 +171,7 @@ Partial Class MainForm
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.DetailedInfoToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(142, 48)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 70)
         '
         'ToolStripMenuItem1
         '
@@ -199,7 +202,7 @@ Partial Class MainForm
         'DetailedInfoToolStripMenuItem
         '
         Me.DetailedInfoToolStripMenuItem.Name = "DetailedInfoToolStripMenuItem"
-        Me.DetailedInfoToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
+        Me.DetailedInfoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DetailedInfoToolStripMenuItem.Text = "Detailed Info"
         '
         'TabControl1
@@ -242,7 +245,7 @@ Partial Class MainForm
         Me.LabelStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelStatus.Location = New System.Drawing.Point(110, 404)
         Me.LabelStatus.Name = "LabelStatus"
-        Me.LabelStatus.Size = New System.Drawing.Size(363, 35)
+        Me.LabelStatus.Size = New System.Drawing.Size(313, 35)
         Me.LabelStatus.TabIndex = 16
         Me.LabelStatus.Text = "Status"
         Me.LabelStatus.Visible = False
@@ -316,6 +319,7 @@ Partial Class MainForm
         '
         Me.LabelStreamerName.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.LabelStreamerName.AutoSize = True
+        Me.LabelStreamerName.Cursor = System.Windows.Forms.Cursors.Help
         Me.LabelStreamerName.Font = New System.Drawing.Font("Segoe UI Black", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelStreamerName.Location = New System.Drawing.Point(108, 343)
         Me.LabelStreamerName.Name = "LabelStreamerName"
@@ -328,9 +332,9 @@ Partial Class MainForm
         'PictureBoxPreview
         '
         Me.PictureBoxPreview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBoxPreview.Location = New System.Drawing.Point(479, 367)
+        Me.PictureBoxPreview.Location = New System.Drawing.Point(429, 367)
         Me.PictureBoxPreview.Name = "PictureBoxPreview"
-        Me.PictureBoxPreview.Size = New System.Drawing.Size(190, 150)
+        Me.PictureBoxPreview.Size = New System.Drawing.Size(240, 150)
         Me.PictureBoxPreview.TabIndex = 6
         Me.PictureBoxPreview.TabStop = False
         '
@@ -378,6 +382,9 @@ Partial Class MainForm
         '
         'TabGames
         '
+        Me.TabGames.Controls.Add(Me.Button9)
+        Me.TabGames.Controls.Add(Me.Button8)
+        Me.TabGames.Controls.Add(Me.LabelOffsetGL)
         Me.TabGames.Controls.Add(Me.LabelGLStatus)
         Me.TabGames.Controls.Add(Me.ButtonGLAddToMulti)
         Me.TabGames.Controls.Add(Me.ButtonGLOpenStream)
@@ -401,6 +408,37 @@ Partial Class MainForm
         Me.TabGames.TabIndex = 1
         Me.TabGames.Text = "Games"
         Me.TabGames.UseVisualStyleBackColor = True
+        '
+        'Button9
+        '
+        Me.Button9.Enabled = False
+        Me.Button9.Location = New System.Drawing.Point(588, 15)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(80, 23)
+        Me.Button9.TabIndex = 30
+        Me.Button9.Text = "Next 100"
+        Me.Button9.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.Enabled = False
+        Me.Button8.Location = New System.Drawing.Point(502, 15)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(80, 23)
+        Me.Button8.TabIndex = 29
+        Me.Button8.Text = "Previous 100"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'LabelOffsetGL
+        '
+        Me.LabelOffsetGL.AutoSize = True
+        Me.LabelOffsetGL.ForeColor = System.Drawing.Color.CornflowerBlue
+        Me.LabelOffsetGL.Location = New System.Drawing.Point(60, 44)
+        Me.LabelOffsetGL.Name = "LabelOffsetGL"
+        Me.LabelOffsetGL.Size = New System.Drawing.Size(39, 13)
+        Me.LabelOffsetGL.TabIndex = 28
+        Me.LabelOffsetGL.Text = "Label5"
+        Me.LabelOffsetGL.Visible = False
         '
         'LabelGLStatus
         '
@@ -692,6 +730,9 @@ Partial Class MainForm
         Me.Controls.Add(Me.TabControl1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(5000, 5000)
+        Me.MinimumSize = New System.Drawing.Size(715, 614)
         Me.Name = "MainForm"
         Me.Text = "MyTwitchExperience BibleThump"
         Me.ContextMenuStrip1.ResumeLayout(False)
@@ -777,5 +818,8 @@ Partial Class MainForm
     Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
     Friend WithEvents DonateToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LabelOffsetGL As System.Windows.Forms.Label
+    Friend WithEvents Button9 As System.Windows.Forms.Button
+    Friend WithEvents Button8 As System.Windows.Forms.Button
 
 End Class
