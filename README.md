@@ -6,7 +6,7 @@ Needs livestreamer in folder "livestreamer" (see compiled zip) for VLC option!
 
 ***What is MyTwitchExperience?***
 
-Screenshot: http://raw-raw.de/mtedl/mte_screenshot.jpg
+Screenshot: (to be updated soon) http://raw-raw.de/mtedl/mte_screenshot.jpg
 
 MyTwitchExperience lets you browse Twitch.tv without a browser.
 
@@ -16,6 +16,7 @@ MyTwitchExperience lets you browse Twitch.tv without a browser.
 <br />[x]Play video in Standard-Browser, VLC or directly in the application
 <br />[X]Browse games
 <br />[X]View/delete users from and add Users to Block list
+<br />[X]View details for a channel (like registration date, etc.)
 
 ***Features to come:***
 <br />[ ]Add "Top Channels"
@@ -26,7 +27,14 @@ MyTwitchExperience lets you browse Twitch.tv without a browser.
 
 
 ***Changelog:***
-<br />22.01.2014
+<br />01.03.2014
+<br />-resized video preview
+<br />-added "channel detail" window
+<br />-made games with more than 100 channels browsable
+<br />-added indicator for offset in gamebrowser
+<br />+some smaller changes...
+
+22.01.2014
 <br />-Blocklist editor/viewer completed
 <br />-Icons for all Windows
 <br />-catching all common API error responses
@@ -44,10 +52,10 @@ MyTwitchExperience lets you browse Twitch.tv without a browser.
 
 
 ***Download compiled version:***
-<br />http://raw-raw.de/mtedl/MyTwitchExperience22.01.2014.zip
+<br />http://raw-raw.de/mtedl/MyTwitchExperience0.2.2.zip
 
 Virustotal:
-<br />https://www.virustotal.com/de/file/24dc67c294ecabdde3bd987c3f0696055e318e78fcc00797bb6fc09cbdf18741/analysis/1390406962/
+<br />https://www.virustotal.com/en/file/4d21fc359a32ae3528eead0d5a26f0cdd1b84d0b2d3dfcb255f094adf75ab04a/analysis/1393650065/
 
 I am not affiliated with Twitch/Justin.tv!
 ==================
