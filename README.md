@@ -61,9 +61,9 @@ NEXT UP: Adding "Notification System"
 
 
 The compiled ZIP includes LiveStreamer
-Copyright (c) 2011-2014, Christopher Rosell
-All rights reserved.
-https://github.com/chrippa/livestreamer
+<br />Copyright (c) 2011-2014, Christopher Rosell
+<br />All rights reserved.
+<br />https://github.com/chrippa/livestreamer
 
 
 ***Download compiled version:***
