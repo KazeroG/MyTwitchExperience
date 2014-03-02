@@ -70,7 +70,7 @@ The compiled ZIP includes LiveStreamer
 <br />http://raw-raw.de/mtedl/MyTwitchExperience0.3.zip
 
 Virustotal:
-<br />https://www.virustotal.com/en/file/1a1e15d3f79f17c48b7cbb58bd9b84a6f34e04eaffd1e8bd55c5accf966c982b/analysis/1393722623/
+<br /https://www.virustotal.com/en/file/f4279cd3a136c3233197bfb4caa20a1759bfd8221aec96f925e7385e9db985b8/analysis/1393727855/
 
 I am not affiliated with Twitch/Justin.tv!
 ==================
