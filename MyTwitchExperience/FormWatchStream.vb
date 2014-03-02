@@ -11,5 +11,19 @@ Public Class FormWatchStream
         RichTextBox1.Text = RichTextBox1.Text.Replace("REPLACEAUTOPLAY", "true")
         WebBrowser1.DocumentText = RichTextBox1.Text
         WebBrowser2.Navigate("http://www.twitch.tv/chat/embed?channel=" + MainForm.watch_user + "&popout_chat=true")
+        While WebBrowser2.ReadyState <> WebBrowserReadyState.Complete
+            Application.DoEvents()
+        End While
+        Dim doc As HtmlDocument = WebBrowser2.Document
+        Dim head As HtmlElement = doc.GetElementsByTagName("head")(0)
+        Dim s As HtmlElement = doc.CreateElement("script")
+        Dim result As String = RichTextBox2.Text
+
+        s.SetAttribute(("text"), result)
+        head.AppendChild(s)
     End Sub
+
+   
+
+  
 End Class
