@@ -52,6 +52,8 @@ Public Class ChannelInfo
                 MsgBox("502 - Gateway Error. Try again soon.")
             ElseIf ex.ToString.Contains("(401)") Then
                 MsgBox("401 Unauthorized - Authentication Error. Request a new Token in Settings!")
+            ElseIf ex.ToString.Contains("(422)") Then
+                MsgBox("422- USER NO EXIST. WTF DID YOU JUST DO?")
             Else
                 MsgBox(ex.ToString)
             End If
@@ -61,58 +63,63 @@ Public Class ChannelInfo
     End Sub
 
     Private Sub ChannelInfo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        channelname = MainForm.selectedchannelname
-        Me.Text = "Detailed info for channel: " + channelname
-        Dim getchannelinfoClient As New System.Net.WebClient
-        getchannelinfoClient.Headers.Add("Accept", "application/vnd.twitchtv.v2+json")
-        getchannelinfoClient.Headers.Add("Authorization", "OAuth " + My.Settings.authkey)
-        Dim channelinfo As New JObject
-        Try
-            Dim result As String = getchannelinfoClient.DownloadString("https://api.twitch.tv/kraken/channels/" + channelname)
-            RichTextBox1.AppendText(result)
-            channelinfo = JsonConvert.DeserializeObject(result)
-            'MsgBox(channelinfo.Item("display_name").ToString)
-            Label14.Text = channelinfo.Item("display_name").ToString
-            Label15.Text = channelinfo.Item("status").ToString
-            If Not channelinfo.Item("game") = "" Then
-                Label16.Text = channelinfo.Item("game").ToString
-            Else
-                Label16.Text = "-none-"
-            End If
-            Label17.Text = channelinfo.Item("_id").ToString
-            Label18.Text = channelinfo.Item("mature").ToString
-            Label19.Text = channelinfo.Item("created_at").ToString
-            Label20.Text = channelinfo.Item("updated_at").ToString
-            Label21.Text = channelinfo.Item("logo").ToString
-            If Not channelinfo.Item("banner").ToString = "" Then
-                Label22.Text = channelinfo.Item("banner").ToString
-            Else
-                Label22.Text = "-none-"
-            End If
-            If Not channelinfo.Item("video_banner").ToString = "" Then
-                Label23.Text = channelinfo.Item("video_banner").ToString
-            Else
-                Label23.Text = "-none-"
-            End If
-            If Not channelinfo.Item("background").ToString = "" Then
-                Label24.Text = channelinfo.Item("background").ToString
-            Else
-                Label24.Text = "-none-"
-            End If
-            Label25.Text = channelinfo.Item("url").ToString
-            Label26.Text = "http://www.twitch.tv/message/compose?to=" + channelinfo.Item("name").ToString
-        Catch ex As Exception
-            If ex.ToString.Contains("(503)") Then
-                MsgBox("503 - Server unavailable. Try again soon.")
-            ElseIf ex.ToString.Contains("(502)") Then
-                MsgBox("502 - Gateway Error. Try again soon.")
-            ElseIf ex.ToString.Contains("(401)") Then
-                MsgBox("401 Unauthorized - Authentication Error. Request a new Token in Settings!")
-            Else
-                MsgBox(ex.ToString)
-            End If
-            Me.Close()
-        End Try
+        If MainForm.donothingonload Then
+            MainForm.donothingonload = False
+        Else
+            channelname = MainForm.selectedchannelname
+            Me.Text = "Detailed info for channel: " + channelname
+            Dim getchannelinfoClient As New System.Net.WebClient
+            getchannelinfoClient.Headers.Add("Accept", "application/vnd.twitchtv.v2+json")
+            getchannelinfoClient.Headers.Add("Authorization", "OAuth " + My.Settings.authkey)
+            Dim channelinfo As New JObject
+            Try
+                Dim result As String = getchannelinfoClient.DownloadString("https://api.twitch.tv/kraken/channels/" + channelname)
+                RichTextBox1.AppendText(result)
+                channelinfo = JsonConvert.DeserializeObject(result)
+                'MsgBox(channelinfo.Item("display_name").ToString)
+                Label14.Text = channelinfo.Item("display_name").ToString
+                Label15.Text = channelinfo.Item("status").ToString
+                If Not channelinfo.Item("game") = "" Then
+                    Label16.Text = channelinfo.Item("game").ToString
+                Else
+                    Label16.Text = "-none-"
+                End If
+                Label17.Text = channelinfo.Item("_id").ToString
+                Label18.Text = channelinfo.Item("mature").ToString
+                Label19.Text = channelinfo.Item("created_at").ToString
+                Label20.Text = channelinfo.Item("updated_at").ToString
+                Label21.Text = channelinfo.Item("logo").ToString
+                If Not channelinfo.Item("banner").ToString = "" Then
+                    Label22.Text = channelinfo.Item("banner").ToString
+                Else
+                    Label22.Text = "-none-"
+                End If
+                If Not channelinfo.Item("video_banner").ToString = "" Then
+                    Label23.Text = channelinfo.Item("video_banner").ToString
+                Else
+                    Label23.Text = "-none-"
+                End If
+                If Not channelinfo.Item("background").ToString = "" Then
+                    Label24.Text = channelinfo.Item("background").ToString
+                Else
+                    Label24.Text = "-none-"
+                End If
+                Label25.Text = channelinfo.Item("url").ToString
+                Label26.Text = "http://www.twitch.tv/message/compose?to=" + channelinfo.Item("name").ToString
+            Catch ex As Exception
+                If ex.ToString.Contains("(503)") Then
+                    MsgBox("503 - Server unavailable. Try again soon.")
+                ElseIf ex.ToString.Contains("(502)") Then
+                    MsgBox("502 - Gateway Error. Try again soon.")
+                ElseIf ex.ToString.Contains("(401)") Then
+                    MsgBox("401 Unauthorized - Authentication Error. Request a new Token in Settings!")
+                Else
+                    MsgBox(ex.ToString)
+                End If
+                Me.Close()
+            End Try
+        End If
+        
     End Sub
 
     Private Sub Label21_Click(sender As Object, e As EventArgs) Handles Label21.Click

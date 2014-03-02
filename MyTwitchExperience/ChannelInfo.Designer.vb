@@ -22,6 +22,7 @@ Partial Class ChannelInfo
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ChannelInfo))
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -200,9 +201,9 @@ Partial Class ChannelInfo
         Me.Label14.ForeColor = System.Drawing.Color.DimGray
         Me.Label14.Location = New System.Drawing.Point(159, 9)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(52, 13)
+        Me.Label14.Size = New System.Drawing.Size(43, 13)
         Me.Label14.TabIndex = 14
-        Me.Label14.Text = "Label14"
+        Me.Label14.Text = "-none-"
         '
         'Label15
         '
@@ -211,9 +212,9 @@ Partial Class ChannelInfo
         Me.Label15.ForeColor = System.Drawing.Color.DimGray
         Me.Label15.Location = New System.Drawing.Point(159, 23)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(52, 13)
+        Me.Label15.Size = New System.Drawing.Size(43, 13)
         Me.Label15.TabIndex = 15
-        Me.Label15.Text = "Label15"
+        Me.Label15.Text = "-none-"
         '
         'Label16
         '
@@ -222,9 +223,9 @@ Partial Class ChannelInfo
         Me.Label16.ForeColor = System.Drawing.Color.DimGray
         Me.Label16.Location = New System.Drawing.Point(159, 36)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(52, 13)
+        Me.Label16.Size = New System.Drawing.Size(43, 13)
         Me.Label16.TabIndex = 16
-        Me.Label16.Text = "Label16"
+        Me.Label16.Text = "-none-"
         '
         'Label17
         '
@@ -233,9 +234,9 @@ Partial Class ChannelInfo
         Me.Label17.ForeColor = System.Drawing.Color.DimGray
         Me.Label17.Location = New System.Drawing.Point(159, 49)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(52, 13)
+        Me.Label17.Size = New System.Drawing.Size(43, 13)
         Me.Label17.TabIndex = 17
-        Me.Label17.Text = "Label17"
+        Me.Label17.Text = "-none-"
         '
         'Label18
         '
@@ -244,9 +245,9 @@ Partial Class ChannelInfo
         Me.Label18.ForeColor = System.Drawing.Color.DimGray
         Me.Label18.Location = New System.Drawing.Point(159, 62)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(52, 13)
+        Me.Label18.Size = New System.Drawing.Size(43, 13)
         Me.Label18.TabIndex = 18
-        Me.Label18.Text = "Label18"
+        Me.Label18.Text = "-none-"
         '
         'Label19
         '
@@ -255,9 +256,9 @@ Partial Class ChannelInfo
         Me.Label19.ForeColor = System.Drawing.Color.DimGray
         Me.Label19.Location = New System.Drawing.Point(159, 75)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(52, 13)
+        Me.Label19.Size = New System.Drawing.Size(43, 13)
         Me.Label19.TabIndex = 19
-        Me.Label19.Text = "Label19"
+        Me.Label19.Text = "-none-"
         '
         'Label20
         '
@@ -266,9 +267,9 @@ Partial Class ChannelInfo
         Me.Label20.ForeColor = System.Drawing.Color.DimGray
         Me.Label20.Location = New System.Drawing.Point(159, 88)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(52, 13)
+        Me.Label20.Size = New System.Drawing.Size(43, 13)
         Me.Label20.TabIndex = 20
-        Me.Label20.Text = "Label20"
+        Me.Label20.Text = "-none-"
         '
         'Label21
         '
@@ -402,8 +403,9 @@ Partial Class ChannelInfo
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.RichTextBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ChannelInfo"
-        Me.Text = "Video Banner:"
+        Me.Text = "Channel Details"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

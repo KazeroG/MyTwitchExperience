@@ -18,6 +18,9 @@ Public Class FormSetup
             LabelOAuthToken.Text = My.Settings.authkey
             LabelVLCdir.Text = My.Settings.vlcdir
             ComboBoxQuality.Text = My.Settings.quality
+            If Not My.Settings.autorefresh = 0 Then
+                TextBoxAutorefresh.Text = My.Settings.autorefresh.ToString
+            End If
             Me.TopMost = True
         Catch ex As Exception
 
@@ -30,6 +33,17 @@ Public Class FormSetup
         My.Settings.authkey = LabelOAuthToken.Text
         My.Settings.vlcdir = LabelVLCdir.Text
         My.Settings.quality = ComboBoxQuality.Text
+        Try
+            If (CInt(TextBoxAutorefresh.Text) < 9000) And (CInt(TextBoxAutorefresh.Text) > 10) Then
+                My.Settings.autorefresh = CInt(TextBoxAutorefresh.Text)
+                MainForm.Button11.Text = My.Settings.autorefresh.ToString + " Minutes"
+            Else
+                MsgBox("Auto-Refresh time not supported!" + Environment.NewLine + Environment.NewLine + "No under 10, no over 9000!" + Environment.NewLine + Environment.NewLine + "Anyway.. Will save everything else..", MsgBoxStyle.Information, "Auto-Refresh")
+            End If
+        Catch ex As Exception
+
+        End Try
+        
         My.Settings.Save()
         MsgBox("Settings successfully saved!")
         Me.Close()

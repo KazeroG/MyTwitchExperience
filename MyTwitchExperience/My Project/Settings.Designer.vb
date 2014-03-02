@@ -113,6 +113,18 @@ Namespace My
                 Me("quality") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property autorefresh() As Integer
+            Get
+                Return CType(Me("autorefresh"),Integer)
+            End Get
+            Set
+                Me("autorefresh") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

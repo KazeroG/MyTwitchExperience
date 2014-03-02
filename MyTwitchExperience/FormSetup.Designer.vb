@@ -41,6 +41,9 @@ Partial Class FormSetup
         Me.Label7 = New System.Windows.Forms.Label()
         Me.ComboBoxQuality = New System.Windows.Forms.ComboBox()
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.TextBoxAutorefresh = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -208,11 +211,41 @@ Partial Class FormSetup
         Me.Button5.Text = "Clear Cookies"
         Me.Button5.UseVisualStyleBackColor = True
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(124, 277)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(157, 13)
+        Me.Label8.TabIndex = 17
+        Me.Label8.Text = "Custom Auto-Refresh Time"
+        '
+        'TextBoxAutorefresh
+        '
+        Me.TextBoxAutorefresh.Location = New System.Drawing.Point(127, 293)
+        Me.TextBoxAutorefresh.Name = "TextBoxAutorefresh"
+        Me.TextBoxAutorefresh.Size = New System.Drawing.Size(92, 20)
+        Me.TextBoxAutorefresh.TabIndex = 18
+        Me.TextBoxAutorefresh.Text = "-unset-"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(225, 296)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(44, 13)
+        Me.Label9.TabIndex = 19
+        Me.Label9.Text = "Minutes"
+        '
         'FormSetup
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(293, 362)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.TextBoxAutorefresh)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.ComboBoxQuality)
         Me.Controls.Add(Me.Label7)
@@ -255,4 +288,7 @@ Partial Class FormSetup
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents ComboBoxQuality As System.Windows.Forms.ComboBox
     Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents TextBoxAutorefresh As System.Windows.Forms.TextBox
+    Friend WithEvents Label9 As System.Windows.Forms.Label
 End Class

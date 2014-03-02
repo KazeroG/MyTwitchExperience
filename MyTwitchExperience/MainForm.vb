@@ -8,8 +8,13 @@ Imports System.Diagnostics.Process
 Public Class MainForm
 
     Dim busy As Boolean
+    Dim timerison As Boolean = False
+    Public donothingonload As Boolean = False
+    Dim keyword As String = ""
+    Dim searchmode As String = "channels"
     Dim gamelistoffset As Integer = 0
     Dim streamlistoffset As Integer = 0
+    Dim chansearchoffset As Integer = 0
     Dim selectedgame As String = ""
     Public selectedchannelname As String
     Public watch_user As String
@@ -60,6 +65,10 @@ Public Class MainForm
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If My.Settings.username = Nothing Then
             FormSetup.Show()
+        End If
+        If Not My.Settings.autorefresh = 0 Then
+            Button11.Text = My.Settings.autorefresh.ToString + " Minutes"
+            Button11.Enabled = True
         End If
     End Sub
 
@@ -368,6 +377,9 @@ Public Class MainForm
                 GLstatusmessage = ListView4.Items(item.Index).SubItems(2).ToString
             Next
             'FORMAT LABELS
+            If IsNothing(GLgame) Then
+                Exit Sub
+            End If
             GLgame = GLgame.Substring(GLgame.IndexOf("{") + 1)
             GLgame = GLgame.Remove(GLgame.IndexOf("}"), 1)
             GLstreamer = GLstreamer.Substring(GLstreamer.IndexOf("{") + 1)
@@ -438,6 +450,285 @@ Public Class MainForm
 
     Private Sub DetailedInfoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DetailedInfoToolStripMenuItem.Click
         selectedchannelname = LabelStreamerName.Text
+        ChannelInfo.Show()
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        FormAbout.Show()
+    End Sub
+
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+        ListView1.Items.Clear()
+        ListView2.Items.Clear()
+        Get_Following_Live()
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        If Button1.ForeColor = Color.Red Then
+            If Not timerison Then
+                Timer1.Interval = 300000
+                Timer1.Start()
+                timerison = True
+                Button1.ForeColor = Color.Green
+            End If
+        Else
+            timerison = False
+            Timer1.Stop()
+            Button1.ForeColor = Color.Red
+        End If
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        If Button10.ForeColor = Color.Red Then
+            If Not timerison Then
+                Timer1.Interval = 600000
+                Timer1.Start()
+                timerison = True
+                Button10.ForeColor = Color.Green
+            End If
+        Else
+            timerison = False
+            Timer1.Stop()
+            Button10.ForeColor = Color.Red
+        End If
+    End Sub
+
+
+    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
+        If Button11.ForeColor = Color.Red Then
+            If Not timerison Then
+                Timer1.Interval = CInt(My.Settings.autorefresh) * 60000
+                Timer1.Start()
+                timerison = True
+                Button11.ForeColor = Color.Green
+            End If
+        Else
+            timerison = False
+            Timer1.Stop()
+            Button11.ForeColor = Color.Red
+        End If
+    End Sub
+
+    Private Sub MinimizeToTrayToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MinimizeToTrayToolStripMenuItem.Click
+        Me.ShowInTaskbar = False
+        Me.WindowState = FormWindowState.Minimized
+        Me.NotifyIcon1.Visible = True
+    End Sub
+
+
+    Private Sub NotifyIcon1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles NotifyIcon1.Click
+        Me.ShowInTaskbar = True
+        Me.NotifyIcon1.Visible = False
+        Me.WindowState = FormWindowState.Normal
+    End Sub
+
+    Private Sub AlwaysOnTopToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AlwaysOnTopToolStripMenuItem.Click
+        If AlwaysOnTopToolStripMenuItem.ForeColor = Color.Red Then
+            AlwaysOnTopToolStripMenuItem.ForeColor = Color.Green
+            Me.TopMost = True
+        Else
+            AlwaysOnTopToolStripMenuItem.ForeColor = Color.Red
+            Me.TopMost = False
+        End If
+    End Sub
+
+    Private Sub LookupChannelInfoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LookupChannelInfoToolStripMenuItem.Click
+        donothingonload = True
+        ChannelInfo.Show()
+    End Sub
+    Sub Find_Channels()
+        Try
+            Dim gettopchannelsClient As New System.Net.WebClient
+            Dim result As String = gettopchannelsClient.DownloadString("https://api.twitch.tv/kraken/search/streams?limit=100&offset" + chansearchoffset.ToString + "&q=" + keyword)
+            RichTextBox3.AppendText(result)
+            Dim streamlist As New JObject
+            streamlist = JsonConvert.DeserializeObject(result)
+            For x As Integer = 0 To streamlist.Item("streams").Count - 1
+                ListView5.BeginUpdate()
+                Dim li As ListViewItem
+                li = ListView5.Items.Add(streamlist.Item("streams").Item(x).Item("channel").Item("display_name").ToString.Replace("Ã©", "é"))
+                li.SubItems.Add(streamlist.Item("streams").Item(x).Item("viewers").ToString)
+                li.SubItems.Add(streamlist.Item("streams").Item(x).Item("game").ToString)
+                li.SubItems.Add(streamlist.Item("streams").Item(x).Item("channel").Item("status").ToString)
+                li.SubItems.Add(streamlist.Item("streams").Item(x).Item("channel").Item("mature").ToString)
+                li.SubItems.Add(streamlist.Item("streams").Item(x).Item("preview").Item("medium").ToString)
+                li.SubItems.Add(streamlist.Item("streams").Item(x).Item("channel").Item("logo").ToString)
+                ' MsgBox(streamlist.Item("streams").Item(x).Item("viewers").ToString)
+                ListView5.EndUpdate()
+                ListView5.Update()
+            Next
+            'Dim offsetmax As Integer = gamelistoffset + 99
+            'LabelOffsetGL.Visible = True
+            'LabelOffsetGL.Text = ("(Showing " + gamelistoffset.ToString + " to " + offsetmax.ToString + " out of " + streamlist.Item("_total").ToString + ")")
+
+        Catch ex As Exception
+            If ex.ToString.Contains("(503)") Then
+                MsgBox("503 - Server unavailable. Try again soon.")
+            ElseIf ex.ToString.Contains("(502)") Then
+                MsgBox("502 - Gateway Error. Try again soon.")
+            ElseIf ex.ToString.Contains("(401)") Then
+                MsgBox("401 Unauthorized - Authentication Error. Request a new Token in Settings!")
+            Else
+                MsgBox(ex.ToString)
+            End If
+        End Try
+    End Sub
+
+    Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
+        RichTextBox3.Clear()
+        ListView5.Items.Clear()
+        keyword = TextBoxSearch.Text
+        Find_Channels()
+    End Sub
+
+    Private Sub ListView5_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView5.SelectedIndexChanged
+        Try
+            Dim GLpreviewlink As String
+            Dim GLlogolink As String
+            Dim GLstreamer As String
+            Dim GLgame As String
+            Dim GLstatusmessage As String
+            GLlogolink = "http://www-cdn.jtvnw.net/images/xarth/header_logo.png"
+            GLpreviewlink = "http://www-cdn.jtvnw.net/images/xarth/header_logo.png"
+            For Each item As ListViewItem In ListView5.SelectedItems()
+                GLpreviewlink = ListView5.Items(item.Index).SubItems(5).ToString
+                GLlogolink = ListView5.Items(item.Index).SubItems(6).ToString
+                GLstreamer = ListView5.Items(item.Index).ToString
+                GLgame = ListView5.Items(item.Index).SubItems(2).ToString
+                GLstatusmessage = ListView5.Items(item.Index).SubItems(3).ToString
+            Next
+            'FORMAT LABELS
+            If IsNothing(GLgame) Then
+                Exit Sub
+            End If
+            GLgame = GLgame.Substring(GLgame.IndexOf("{") + 1)
+            GLgame = GLgame.Remove(GLgame.IndexOf("}"), 1)
+            GLstreamer = GLstreamer.Substring(GLstreamer.IndexOf("{") + 1)
+            GLstreamer = GLstreamer.Remove(GLstreamer.IndexOf("}"), 1)
+            GLstatusmessage = GLstatusmessage.Substring(GLstatusmessage.IndexOf("{") + 1)
+            GLstatusmessage = GLstatusmessage.Remove(GLstatusmessage.IndexOf("}"), 1)
+            'FORMAT IMAGE LINK
+            GLlogolink = GLlogolink.Substring(GLlogolink.IndexOf("{") + 1)
+            GLlogolink = GLlogolink.Remove(GLlogolink.IndexOf("}"), 1)
+            GLpreviewlink = GLpreviewlink.Substring(GLpreviewlink.IndexOf("{") + 1)
+            GLpreviewlink = GLpreviewlink.Remove(GLpreviewlink.IndexOf("}"), 1)
+            'DOWNLOAD AND PLACE IMAGES
+            Dim PreviewDownloader As New System.Net.WebClient
+            Dim ImageInBytes() As Byte = PreviewDownloader.DownloadData(GLpreviewlink)
+            Dim ImageStream As New IO.MemoryStream(ImageInBytes)
+            PictureBoxSearch.Image = New System.Drawing.Bitmap(ImageStream)
+            PictureBoxSearch.SizeMode = PictureBoxSizeMode.StretchImage
+            If GLlogolink = "" Then
+                GLlogolink = "http://www-cdn.jtvnw.net/images/xarth/header_logo.png" 'For missing avatars
+            End If
+            Dim logodownloader As New System.Net.WebClient
+            Dim ImageInBytes2() As Byte = logodownloader.DownloadData(GLlogolink)
+            Dim ImageStream2 As New IO.MemoryStream(ImageInBytes2)
+            PictureBoxSearchLogo.Image = New System.Drawing.Bitmap(ImageStream2)
+            PictureBoxSearchLogo.SizeMode = PictureBoxSizeMode.StretchImage
+            'SET LABEL TEXT AND VISIBILITY
+            ButtonSearchOpenBrowserAndChat.Visible = True
+            LabelSearchGame.Text = GLgame
+            LabelSearchStreamer.Text = GLstreamer
+            LabelSearchStatus.Text = GLstatusmessage
+            Label7.Visible = True
+            Label9.Visible = True
+            LabelSearchGame.Visible = True
+            LabelSearchStreamer.Visible = True
+            LabelSearchStatus.Visible = True
+        Catch ex As Exception
+            If ex.ToString.Contains("(503)") Then
+                MsgBox("503 - Server unavailable. Try again soon.")
+            ElseIf ex.ToString.Contains("(502)") Then
+                MsgBox("502 - Gateway Error. Try again soon.")
+            ElseIf ex.ToString.Contains("(401)") Then
+                MsgBox("401 Unauthorized - Authentication Error. Request a new Token in Settings!")
+            Else
+                'MsgBox(ex.ToString)
+            End If
+        End Try
+    End Sub
+
+   
+    Private Sub ToolStripMenuItem11_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem11.Click
+        selectedchannelname = LabelSearchStreamer.Text
+        ChannelInfo.Show()
+    End Sub
+
+    Private Sub ToolStripMenuItem8_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem8.Click
+        Try
+            Dim getlivefollowingClient As New System.Net.WebClient
+            getlivefollowingClient.Headers.Add("Accept", "application/vnd.twitchtv.v2+json")
+            getlivefollowingClient.Headers.Add("Authorization", "OAuth " + My.Settings.authkey)
+            Dim result As String = getlivefollowingClient.DownloadString("https://api.twitch.tv/kraken/channels/" + LabelSearchStreamer.Text)
+            Dim streamlist As New JObject
+            streamlist = JsonConvert.DeserializeObject(result)
+            Process.Start(streamlist.Item("url").ToString.Replace("www", My.Settings.locale))
+        Catch ex As Exception
+            If ex.ToString.Contains("(503)") Then
+                MsgBox("503 - Server unavailable. Try again soon.")
+            ElseIf ex.ToString.Contains("(502)") Then
+                MsgBox("502 - Gateway Error. Try again soon.")
+            ElseIf ex.ToString.Contains("(401)") Then
+                MsgBox("401 Unauthorized - Authentication Error. Request a new Token in Settings!")
+            Else
+                MsgBox(ex.ToString)
+            End If
+        End Try
+    End Sub
+
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
+        Try
+            Dim getlivefollowingClient As New System.Net.WebClient
+            getlivefollowingClient.Headers.Add("Accept", "application/vnd.twitchtv.v2+json")
+            getlivefollowingClient.Headers.Add("Authorization", "OAuth " + My.Settings.authkey)
+            Dim result As String = getlivefollowingClient.DownloadString("https://api.twitch.tv/kraken/channels/" + LabelGLStreamer.Text)
+            Dim streamlist As New JObject
+            streamlist = JsonConvert.DeserializeObject(result)
+            Process.Start(streamlist.Item("url").ToString.Replace("www", My.Settings.locale))
+        Catch ex As Exception
+            If ex.ToString.Contains("(503)") Then
+                MsgBox("503 - Server unavailable. Try again soon.")
+            ElseIf ex.ToString.Contains("(502)") Then
+                MsgBox("502 - Gateway Error. Try again soon.")
+            ElseIf ex.ToString.Contains("(401)") Then
+                MsgBox("401 Unauthorized - Authentication Error. Request a new Token in Settings!")
+            Else
+                MsgBox(ex.ToString)
+            End If
+        End Try
+    End Sub
+
+    Private Sub ToolStripMenuItem9_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem9.Click
+        If Not My.Settings.vlcdir = Nothing Then
+            Dim streamname As String = LabelSearchStreamer.Text
+            Dim cmdargs As String = "-p """ + My.Settings.vlcdir + "\vlc.exe"" " + My.Settings.locale + ".twitch.tv/" + streamname + " " + My.Settings.quality
+            Dim path As String = "livestreamer\livestreamer.exe"
+            Dim VideoPlayer As New System.Diagnostics.Process()
+            VideoPlayer.StartInfo.UseShellExecute = False
+            VideoPlayer.StartInfo.CreateNoWindow = True
+            VideoPlayer.StartInfo.FileName = path
+            VideoPlayer.StartInfo.Arguments = cmdargs
+            VideoPlayer.Start()
+        End If
+    End Sub
+
+    Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem4.Click
+        If Not My.Settings.vlcdir = Nothing Then
+            Dim streamname As String = LabelGLStreamer.Text
+            Dim cmdargs As String = "-p """ + My.Settings.vlcdir + "\vlc.exe"" " + My.Settings.locale + ".twitch.tv/" + streamname + " " + My.Settings.quality
+            Dim path As String = "livestreamer\livestreamer.exe"
+            Dim VideoPlayer As New System.Diagnostics.Process()
+            VideoPlayer.StartInfo.UseShellExecute = False
+            VideoPlayer.StartInfo.CreateNoWindow = True
+            VideoPlayer.StartInfo.FileName = path
+            VideoPlayer.StartInfo.Arguments = cmdargs
+            VideoPlayer.Start()
+        End If
+    End Sub
+
+    Private Sub ToolStripMenuItem6_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem6.Click
+        selectedchannelname = LabelGLStreamer.Text
         ChannelInfo.Show()
     End Sub
 End Class

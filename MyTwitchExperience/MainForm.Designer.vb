@@ -41,6 +41,10 @@ Partial Class MainForm
         Me.DetailedInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabFollowing = New System.Windows.Forms.TabPage()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button11 = New System.Windows.Forms.Button()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.LabelStatus = New System.Windows.Forms.Label()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
@@ -85,15 +89,56 @@ Partial Class MainForm
         Me.ColumnHeaderGame = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeaderViewers = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.TabPageSearch = New System.Windows.Forms.TabPage()
+        Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
+        Me.TextBoxSearch = New System.Windows.Forms.TextBox()
+        Me.Button16 = New System.Windows.Forms.Button()
+        Me.Button17 = New System.Windows.Forms.Button()
+        Me.Button15 = New System.Windows.Forms.Button()
+        Me.LabelSearchStatus = New System.Windows.Forms.Label()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.ListView5 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Button13 = New System.Windows.Forms.Button()
+        Me.PictureBoxSearchLogo = New System.Windows.Forms.PictureBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.PictureBoxSearch = New System.Windows.Forms.PictureBox()
+        Me.ButtonSearchOpenBrowserAndChat = New System.Windows.Forms.Button()
+        Me.LabelSearchStreamer = New System.Windows.Forms.Label()
+        Me.LabelSearchGame = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditBlockListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LookupChannelInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RawrawToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DonateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MinimizeToTrayToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AlwaysOnTopToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContextMenuStrip3 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem9 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem10 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem11 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabFollowing.SuspendLayout()
@@ -102,7 +147,12 @@ Partial Class MainForm
         Me.TabGames.SuspendLayout()
         CType(Me.PictureBoxGLpreview, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxGLlogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPageSearch.SuspendLayout()
+        CType(Me.PictureBoxSearchLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
+        Me.ContextMenuStrip2.SuspendLayout()
+        Me.ContextMenuStrip3.SuspendLayout()
         Me.SuspendLayout()
         '
         'RichTextBox1
@@ -171,7 +221,7 @@ Partial Class MainForm
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.DetailedInfoToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 70)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(142, 48)
         '
         'ToolStripMenuItem1
         '
@@ -202,13 +252,14 @@ Partial Class MainForm
         'DetailedInfoToolStripMenuItem
         '
         Me.DetailedInfoToolStripMenuItem.Name = "DetailedInfoToolStripMenuItem"
-        Me.DetailedInfoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DetailedInfoToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.DetailedInfoToolStripMenuItem.Text = "Detailed Info"
         '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabFollowing)
         Me.TabControl1.Controls.Add(Me.TabGames)
+        Me.TabControl1.Controls.Add(Me.TabPageSearch)
         Me.TabControl1.Location = New System.Drawing.Point(12, 26)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -217,6 +268,10 @@ Partial Class MainForm
         '
         'TabFollowing
         '
+        Me.TabFollowing.Controls.Add(Me.Label3)
+        Me.TabFollowing.Controls.Add(Me.Button11)
+        Me.TabFollowing.Controls.Add(Me.Button10)
+        Me.TabFollowing.Controls.Add(Me.Button1)
         Me.TabFollowing.Controls.Add(Me.LabelStatus)
         Me.TabFollowing.Controls.Add(Me.Button7)
         Me.TabFollowing.Controls.Add(Me.Button6)
@@ -240,12 +295,53 @@ Partial Class MainForm
         Me.TabFollowing.Text = "Following"
         Me.TabFollowing.UseVisualStyleBackColor = True
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(330, 11)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(81, 13)
+        Me.Label3.TabIndex = 20
+        Me.Label3.Text = "Auto-Refresh"
+        '
+        'Button11
+        '
+        Me.Button11.Enabled = False
+        Me.Button11.ForeColor = System.Drawing.Color.Red
+        Me.Button11.Location = New System.Drawing.Point(589, 6)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(80, 23)
+        Me.Button11.TabIndex = 19
+        Me.Button11.Text = "(see settings)"
+        Me.Button11.UseVisualStyleBackColor = True
+        '
+        'Button10
+        '
+        Me.Button10.ForeColor = System.Drawing.Color.Red
+        Me.Button10.Location = New System.Drawing.Point(503, 6)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(80, 23)
+        Me.Button10.TabIndex = 18
+        Me.Button10.Text = "10 Minutes"
+        Me.Button10.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.ForeColor = System.Drawing.Color.Red
+        Me.Button1.Location = New System.Drawing.Point(417, 6)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(80, 23)
+        Me.Button1.TabIndex = 17
+        Me.Button1.Text = "5 Minutes"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'LabelStatus
         '
         Me.LabelStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelStatus.Location = New System.Drawing.Point(110, 404)
         Me.LabelStatus.Name = "LabelStatus"
-        Me.LabelStatus.Size = New System.Drawing.Size(313, 35)
+        Me.LabelStatus.Size = New System.Drawing.Size(328, 35)
         Me.LabelStatus.TabIndex = 16
         Me.LabelStatus.Text = "Status"
         Me.LabelStatus.Visible = False
@@ -332,9 +428,9 @@ Partial Class MainForm
         'PictureBoxPreview
         '
         Me.PictureBoxPreview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBoxPreview.Location = New System.Drawing.Point(429, 367)
+        Me.PictureBoxPreview.Location = New System.Drawing.Point(444, 367)
         Me.PictureBoxPreview.Name = "PictureBoxPreview"
-        Me.PictureBoxPreview.Size = New System.Drawing.Size(240, 150)
+        Me.PictureBoxPreview.Size = New System.Drawing.Size(225, 150)
         Me.PictureBoxPreview.TabIndex = 6
         Me.PictureBoxPreview.TabStop = False
         '
@@ -445,7 +541,7 @@ Partial Class MainForm
         Me.LabelGLStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelGLStatus.Location = New System.Drawing.Point(110, 397)
         Me.LabelGLStatus.Name = "LabelGLStatus"
-        Me.LabelGLStatus.Size = New System.Drawing.Size(363, 35)
+        Me.LabelGLStatus.Size = New System.Drawing.Size(340, 35)
         Me.LabelGLStatus.TabIndex = 26
         Me.LabelGLStatus.Text = "Status"
         Me.LabelGLStatus.Visible = False
@@ -531,9 +627,9 @@ Partial Class MainForm
         'PictureBoxGLpreview
         '
         Me.PictureBoxGLpreview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBoxGLpreview.Location = New System.Drawing.Point(479, 360)
+        Me.PictureBoxGLpreview.Location = New System.Drawing.Point(456, 360)
         Me.PictureBoxGLpreview.Name = "PictureBoxGLpreview"
-        Me.PictureBoxGLpreview.Size = New System.Drawing.Size(190, 150)
+        Me.PictureBoxGLpreview.Size = New System.Drawing.Size(213, 150)
         Me.PictureBoxGLpreview.TabIndex = 18
         Me.PictureBoxGLpreview.TabStop = False
         '
@@ -577,6 +673,7 @@ Partial Class MainForm
         'ListView4
         '
         Me.ListView4.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7})
+        Me.ListView4.ContextMenuStrip = Me.ContextMenuStrip2
         Me.ListView4.FullRowSelect = True
         Me.ListView4.GridLines = True
         Me.ListView4.Location = New System.Drawing.Point(338, 37)
@@ -654,9 +751,231 @@ Partial Class MainForm
         Me.Button2.Text = "Get list / Refresh"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'TabPageSearch
+        '
+        Me.TabPageSearch.Controls.Add(Me.RichTextBox3)
+        Me.TabPageSearch.Controls.Add(Me.TextBoxSearch)
+        Me.TabPageSearch.Controls.Add(Me.Button16)
+        Me.TabPageSearch.Controls.Add(Me.Button17)
+        Me.TabPageSearch.Controls.Add(Me.Button15)
+        Me.TabPageSearch.Controls.Add(Me.LabelSearchStatus)
+        Me.TabPageSearch.Controls.Add(Me.Button12)
+        Me.TabPageSearch.Controls.Add(Me.ListView5)
+        Me.TabPageSearch.Controls.Add(Me.Button13)
+        Me.TabPageSearch.Controls.Add(Me.PictureBoxSearchLogo)
+        Me.TabPageSearch.Controls.Add(Me.Label7)
+        Me.TabPageSearch.Controls.Add(Me.PictureBoxSearch)
+        Me.TabPageSearch.Controls.Add(Me.ButtonSearchOpenBrowserAndChat)
+        Me.TabPageSearch.Controls.Add(Me.LabelSearchStreamer)
+        Me.TabPageSearch.Controls.Add(Me.LabelSearchGame)
+        Me.TabPageSearch.Controls.Add(Me.Label9)
+        Me.TabPageSearch.Location = New System.Drawing.Point(4, 22)
+        Me.TabPageSearch.Name = "TabPageSearch"
+        Me.TabPageSearch.Size = New System.Drawing.Size(675, 523)
+        Me.TabPageSearch.TabIndex = 2
+        Me.TabPageSearch.Text = "Search Channels"
+        Me.TabPageSearch.UseVisualStyleBackColor = True
+        '
+        'RichTextBox3
+        '
+        Me.RichTextBox3.Location = New System.Drawing.Point(310, 172)
+        Me.RichTextBox3.Name = "RichTextBox3"
+        Me.RichTextBox3.Size = New System.Drawing.Size(297, 96)
+        Me.RichTextBox3.TabIndex = 28
+        Me.RichTextBox3.Text = ""
+        Me.RichTextBox3.Visible = False
+        '
+        'TextBoxSearch
+        '
+        Me.TextBoxSearch.Location = New System.Drawing.Point(6, 8)
+        Me.TextBoxSearch.Name = "TextBoxSearch"
+        Me.TextBoxSearch.Size = New System.Drawing.Size(100, 20)
+        Me.TextBoxSearch.TabIndex = 27
+        '
+        'Button16
+        '
+        Me.Button16.Location = New System.Drawing.Point(592, 14)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(80, 23)
+        Me.Button16.TabIndex = 8
+        Me.Button16.Text = "Next 100"
+        Me.Button16.UseVisualStyleBackColor = True
+        '
+        'Button17
+        '
+        Me.Button17.Enabled = False
+        Me.Button17.Location = New System.Drawing.Point(506, 14)
+        Me.Button17.Name = "Button17"
+        Me.Button17.Size = New System.Drawing.Size(80, 23)
+        Me.Button17.TabIndex = 7
+        Me.Button17.Text = "Previous 100"
+        Me.Button17.UseVisualStyleBackColor = True
+        '
+        'Button15
+        '
+        Me.Button15.Location = New System.Drawing.Point(114, 6)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(96, 23)
+        Me.Button15.TabIndex = 7
+        Me.Button15.Text = "Search!"
+        Me.Button15.UseVisualStyleBackColor = True
+        '
+        'LabelSearchStatus
+        '
+        Me.LabelSearchStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSearchStatus.Location = New System.Drawing.Point(109, 404)
+        Me.LabelSearchStatus.Name = "LabelSearchStatus"
+        Me.LabelSearchStatus.Size = New System.Drawing.Size(313, 35)
+        Me.LabelSearchStatus.TabIndex = 26
+        Me.LabelSearchStatus.Text = "Status"
+        Me.LabelSearchStatus.Visible = False
+        '
+        'Button12
+        '
+        Me.Button12.Enabled = False
+        Me.Button12.Location = New System.Drawing.Point(5, 499)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(150, 23)
+        Me.Button12.TabIndex = 25
+        Me.Button12.Text = "Add to Multitwitch-List"
+        Me.Button12.UseVisualStyleBackColor = True
+        Me.Button12.Visible = False
+        '
+        'ListView5
+        '
+        Me.ListView5.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader8, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13, Me.ColumnHeader14})
+        Me.ListView5.ContextMenuStrip = Me.ContextMenuStrip3
+        Me.ListView5.FullRowSelect = True
+        Me.ListView5.GridLines = True
+        Me.ListView5.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.ListView5.Location = New System.Drawing.Point(-4, 35)
+        Me.ListView5.MultiSelect = False
+        Me.ListView5.Name = "ListView5"
+        Me.ListView5.Size = New System.Drawing.Size(683, 302)
+        Me.ListView5.TabIndex = 7
+        Me.ListView5.UseCompatibleStateImageBehavior = False
+        Me.ListView5.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader8
+        '
+        Me.ColumnHeader8.Text = "Streamer"
+        Me.ColumnHeader8.Width = 100
+        '
+        'ColumnHeader9
+        '
+        Me.ColumnHeader9.Text = "Viewers"
+        '
+        'ColumnHeader10
+        '
+        Me.ColumnHeader10.Text = "Game"
+        Me.ColumnHeader10.Width = 150
+        '
+        'ColumnHeader11
+        '
+        Me.ColumnHeader11.Text = "Status"
+        Me.ColumnHeader11.Width = 300
+        '
+        'ColumnHeader12
+        '
+        Me.ColumnHeader12.Text = "Mature"
+        '
+        'ColumnHeader13
+        '
+        Me.ColumnHeader13.Text = "Previewlink"
+        '
+        'ColumnHeader14
+        '
+        Me.ColumnHeader14.Text = "LogoLink"
+        '
+        'Button13
+        '
+        Me.Button13.Enabled = False
+        Me.Button13.Location = New System.Drawing.Point(5, 470)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(150, 23)
+        Me.Button13.TabIndex = 24
+        Me.Button13.Text = "Open Stream Only"
+        Me.Button13.UseVisualStyleBackColor = True
+        Me.Button13.Visible = False
+        '
+        'PictureBoxSearchLogo
+        '
+        Me.PictureBoxSearchLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBoxSearchLogo.Location = New System.Drawing.Point(5, 343)
+        Me.PictureBoxSearchLogo.Name = "PictureBoxSearchLogo"
+        Me.PictureBoxSearchLogo.Size = New System.Drawing.Size(96, 92)
+        Me.PictureBoxSearchLogo.TabIndex = 17
+        Me.PictureBoxSearchLogo.TabStop = False
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(425, 352)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(92, 13)
+        Me.Label7.TabIndex = 23
+        Me.Label7.Text = "Video Preview:"
+        Me.Label7.Visible = False
+        '
+        'PictureBoxSearch
+        '
+        Me.PictureBoxSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBoxSearch.Location = New System.Drawing.Point(428, 367)
+        Me.PictureBoxSearch.Name = "PictureBoxSearch"
+        Me.PictureBoxSearch.Size = New System.Drawing.Size(240, 150)
+        Me.PictureBoxSearch.TabIndex = 18
+        Me.PictureBoxSearch.TabStop = False
+        '
+        'ButtonSearchOpenBrowserAndChat
+        '
+        Me.ButtonSearchOpenBrowserAndChat.Location = New System.Drawing.Point(5, 441)
+        Me.ButtonSearchOpenBrowserAndChat.Name = "ButtonSearchOpenBrowserAndChat"
+        Me.ButtonSearchOpenBrowserAndChat.Size = New System.Drawing.Size(150, 23)
+        Me.ButtonSearchOpenBrowserAndChat.TabIndex = 22
+        Me.ButtonSearchOpenBrowserAndChat.Text = "Open Stream and Chat"
+        Me.ButtonSearchOpenBrowserAndChat.UseVisualStyleBackColor = True
+        Me.ButtonSearchOpenBrowserAndChat.Visible = False
+        '
+        'LabelSearchStreamer
+        '
+        Me.LabelSearchStreamer.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.LabelSearchStreamer.AutoSize = True
+        Me.LabelSearchStreamer.Cursor = System.Windows.Forms.Cursors.Help
+        Me.LabelSearchStreamer.Font = New System.Drawing.Font("Segoe UI Black", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSearchStreamer.Location = New System.Drawing.Point(107, 343)
+        Me.LabelSearchStreamer.Name = "LabelSearchStreamer"
+        Me.LabelSearchStreamer.Size = New System.Drawing.Size(113, 25)
+        Me.LabelSearchStreamer.TabIndex = 19
+        Me.LabelSearchStreamer.Text = "streamer x"
+        Me.LabelSearchStreamer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LabelSearchStreamer.Visible = False
+        '
+        'LabelSearchGame
+        '
+        Me.LabelSearchGame.AutoSize = True
+        Me.LabelSearchGame.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSearchGame.Location = New System.Drawing.Point(109, 385)
+        Me.LabelSearchGame.Name = "LabelSearchGame"
+        Me.LabelSearchGame.Size = New System.Drawing.Size(45, 13)
+        Me.LabelSearchGame.TabIndex = 21
+        Me.LabelSearchGame.Text = "Label8"
+        Me.LabelSearchGame.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LabelSearchGame.Visible = False
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(111, 368)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(50, 13)
+        Me.Label9.TabIndex = 20
+        Me.Label9.Text = "is playing"
+        Me.Label9.Visible = False
+        '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.AboutToolStripMenuItem, Me.RawrawToolStripMenuItem, Me.DonateToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.AboutToolStripMenuItem, Me.RawrawToolStripMenuItem, Me.DonateToolStripMenuItem, Me.MinimizeToTrayToolStripMenuItem, Me.AlwaysOnTopToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(707, 24)
@@ -680,7 +999,7 @@ Partial Class MainForm
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditBlockListToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditBlockListToolStripMenuItem, Me.LookupChannelInfoToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
@@ -689,8 +1008,14 @@ Partial Class MainForm
         'EditBlockListToolStripMenuItem
         '
         Me.EditBlockListToolStripMenuItem.Name = "EditBlockListToolStripMenuItem"
-        Me.EditBlockListToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.EditBlockListToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
         Me.EditBlockListToolStripMenuItem.Text = "Edit Block List"
+        '
+        'LookupChannelInfoToolStripMenuItem
+        '
+        Me.LookupChannelInfoToolStripMenuItem.Name = "LookupChannelInfoToolStripMenuItem"
+        Me.LookupChannelInfoToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
+        Me.LookupChannelInfoToolStripMenuItem.Text = "Lookup channel info"
         '
         'ExitToolStripMenuItem
         '
@@ -721,6 +1046,107 @@ Partial Class MainForm
         Me.DonateToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
         Me.DonateToolStripMenuItem.Text = "Donate"
         '
+        'MinimizeToTrayToolStripMenuItem
+        '
+        Me.MinimizeToTrayToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.MinimizeToTrayToolStripMenuItem.Name = "MinimizeToTrayToolStripMenuItem"
+        Me.MinimizeToTrayToolStripMenuItem.Size = New System.Drawing.Size(105, 20)
+        Me.MinimizeToTrayToolStripMenuItem.Text = "Minimize to tray"
+        '
+        'AlwaysOnTopToolStripMenuItem
+        '
+        Me.AlwaysOnTopToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.AlwaysOnTopToolStripMenuItem.ForeColor = System.Drawing.Color.Red
+        Me.AlwaysOnTopToolStripMenuItem.Name = "AlwaysOnTopToolStripMenuItem"
+        Me.AlwaysOnTopToolStripMenuItem.Size = New System.Drawing.Size(94, 20)
+        Me.AlwaysOnTopToolStripMenuItem.Text = "Always on top"
+        '
+        'Timer1
+        '
+        '
+        'NotifyIcon1
+        '
+        Me.NotifyIcon1.BalloonTipText = "LOHL"
+        Me.NotifyIcon1.BalloonTipTitle = "TITTEL"
+        Me.NotifyIcon1.Icon = CType(resources.GetObject("NotifyIcon1.Icon"), System.Drawing.Icon)
+        Me.NotifyIcon1.Text = "MyTwitchExperience"
+        '
+        'ContextMenuStrip2
+        '
+        Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.ToolStripMenuItem6})
+        Me.ContextMenuStrip2.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(142, 48)
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.ToolStripMenuItem4, Me.ToolStripMenuItem5})
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(141, 22)
+        Me.ToolStripMenuItem2.Text = "Play!"
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(255, 22)
+        Me.ToolStripMenuItem3.Text = "In Browser"
+        '
+        'ToolStripMenuItem4
+        '
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(255, 22)
+        Me.ToolStripMenuItem4.Text = "In VLC"
+        '
+        'ToolStripMenuItem5
+        '
+        Me.ToolStripMenuItem5.Enabled = False
+        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(255, 22)
+        Me.ToolStripMenuItem5.Text = "Just copy stream URL to Clipboard"
+        '
+        'ToolStripMenuItem6
+        '
+        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(141, 22)
+        Me.ToolStripMenuItem6.Text = "Detailed Info"
+        '
+        'ContextMenuStrip3
+        '
+        Me.ContextMenuStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem7, Me.ToolStripMenuItem11})
+        Me.ContextMenuStrip3.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip3.Size = New System.Drawing.Size(142, 48)
+        '
+        'ToolStripMenuItem7
+        '
+        Me.ToolStripMenuItem7.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem8, Me.ToolStripMenuItem9, Me.ToolStripMenuItem10})
+        Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
+        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(141, 22)
+        Me.ToolStripMenuItem7.Text = "Play!"
+        '
+        'ToolStripMenuItem8
+        '
+        Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(255, 22)
+        Me.ToolStripMenuItem8.Text = "In Browser"
+        '
+        'ToolStripMenuItem9
+        '
+        Me.ToolStripMenuItem9.Name = "ToolStripMenuItem9"
+        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(255, 22)
+        Me.ToolStripMenuItem9.Text = "In VLC"
+        '
+        'ToolStripMenuItem10
+        '
+        Me.ToolStripMenuItem10.Enabled = False
+        Me.ToolStripMenuItem10.Name = "ToolStripMenuItem10"
+        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(255, 22)
+        Me.ToolStripMenuItem10.Text = "Just copy stream URL to Clipboard"
+        '
+        'ToolStripMenuItem11
+        '
+        Me.ToolStripMenuItem11.Name = "ToolStripMenuItem11"
+        Me.ToolStripMenuItem11.Size = New System.Drawing.Size(141, 22)
+        Me.ToolStripMenuItem11.Text = "Detailed Info"
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -745,8 +1171,14 @@ Partial Class MainForm
         Me.TabGames.PerformLayout()
         CType(Me.PictureBoxGLpreview, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBoxGLlogo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPageSearch.ResumeLayout(False)
+        Me.TabPageSearch.PerformLayout()
+        CType(Me.PictureBoxSearchLogo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxSearch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.ContextMenuStrip2.ResumeLayout(False)
+        Me.ContextMenuStrip3.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -821,5 +1253,50 @@ Partial Class MainForm
     Friend WithEvents LabelOffsetGL As System.Windows.Forms.Label
     Friend WithEvents Button9 As System.Windows.Forms.Button
     Friend WithEvents Button8 As System.Windows.Forms.Button
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Button11 As System.Windows.Forms.Button
+    Friend WithEvents Button10 As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents MinimizeToTrayToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents NotifyIcon1 As System.Windows.Forms.NotifyIcon
+    Friend WithEvents AlwaysOnTopToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TabPageSearch As System.Windows.Forms.TabPage
+    Friend WithEvents LabelSearchStatus As System.Windows.Forms.Label
+    Friend WithEvents Button12 As System.Windows.Forms.Button
+    Friend WithEvents ListView5 As System.Windows.Forms.ListView
+    Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader10 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader11 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader12 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Button13 As System.Windows.Forms.Button
+    Friend WithEvents PictureBoxSearchLogo As System.Windows.Forms.PictureBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents PictureBoxSearch As System.Windows.Forms.PictureBox
+    Friend WithEvents ButtonSearchOpenBrowserAndChat As System.Windows.Forms.Button
+    Friend WithEvents LabelSearchStreamer As System.Windows.Forms.Label
+    Friend WithEvents LabelSearchGame As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Button16 As System.Windows.Forms.Button
+    Friend WithEvents Button17 As System.Windows.Forms.Button
+    Friend WithEvents Button15 As System.Windows.Forms.Button
+    Friend WithEvents LookupChannelInfoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TextBoxSearch As System.Windows.Forms.TextBox
+    Friend WithEvents RichTextBox3 As System.Windows.Forms.RichTextBox
+    Friend WithEvents ColumnHeader13 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader14 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ContextMenuStrip3 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem7 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem8 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem9 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem10 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem11 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ContextMenuStrip2 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem4 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem5 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem6 As System.Windows.Forms.ToolStripMenuItem
 
 End Class

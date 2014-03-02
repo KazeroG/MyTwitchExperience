@@ -1,9 +1,7 @@
-﻿Public Class FormWatchStream
+﻿Imports System.Text
 
-
+Public Class FormWatchStream
     Private Sub FormWatchStream_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        'MsgBox(MainForm.watch_user)
         Me.Text = "Watching " + MainForm.watch_user + ".."
         RichTextBox1.LoadFile("embed.txt", RichTextBoxStreamType.PlainText)
         RichTextBox1.Text = RichTextBox1.Text.Replace("REPLACEME", MainForm.watch_user)

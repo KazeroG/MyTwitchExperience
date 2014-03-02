@@ -116,6 +116,12 @@
     <Compile Include="ChannelInfo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormAbout.Designer.vb">
+      <DependentUpon>FormAbout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormAddBlock.Designer.vb">
       <DependentUpon>FormAddBlock.vb</DependentUpon>
     </Compile>
@@ -178,6 +184,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ChannelInfo.resx">
       <DependentUpon>ChannelInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddBlock.resx">
       <DependentUpon>FormAddBlock.vb</DependentUpon>

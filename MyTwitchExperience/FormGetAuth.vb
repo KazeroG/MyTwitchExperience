@@ -2,7 +2,7 @@
 
     Private Sub FormGetAuth_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim authurl As String
-        authurl = "https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=24ajtuzk8rsb0c0iofgcmtlts2zzya&redirect_uri=http%3A%2F%2Fraw-raw.de%2Fmte&scope=user_read+user_blocks_edit+user_blocks_read+user_subscriptions+channel_subscriptions+channel_check_subscription"
+        authurl = "https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=24ajtuzk8rsb0c0iofgcmtlts2zzya&redirect_uri=http%3A%2F%2Fraw-raw.de%2Fmte&scope=user_read+user_blocks_edit+user_blocks_read"
         'MsgBox(authurl)
         WebBrowser1.ScriptErrorsSuppressed = True
         WebBrowser1.Navigate(authurl)
