@@ -60,6 +60,12 @@ NEXT UP: Adding "Notification System"
 <br />-Initial Release
 
 
+The compiled ZIP includes LiveStreamer
+Copyright (c) 2011-2014, Christopher Rosell
+All rights reserved.
+https://github.com/chrippa/livestreamer
+
+
 ***Download compiled version:***
 <br />http://raw-raw.de/mtedl/MyTwitchExperience0.3.zip
 
