@@ -6,7 +6,7 @@ Needs livestreamer in folder "livestreamer" (see compiled zip) for VLC option!
 
 ***What is MyTwitchExperience?***
 
-Screenshot: (to be updated soon) http://raw-raw.de/mtedl/mte_screenshot.png
+Screenshot: http://raw-raw.de/mtedl/mte_screenshot.png
 
 MyTwitchExperience lets you browse Twitch.tv without a browser.
 
