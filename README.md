@@ -10,24 +10,33 @@ Screenshot: (to be updated soon) http://raw-raw.de/mtedl/mte_screenshot.png
 
 MyTwitchExperience lets you browse Twitch.tv without a browser.
 
-NEXT UP: Adding "Top Channels"
+NEXT UP: Adding "Notification System"
 
 
 ***Features so far:***
-<br />[x]Read followers list
+<br />[x]Read followers list (incl. Auto-Refresh)
 <br />[x]Play video in Standard-Browser, VLC or directly in the application
 <br />[X]Browse games
 <br />[X]View/delete users from and add Users to Block list
 <br />[X]View details for a channel (like registration date, etc.)
+<br />[X]Basic search funcion
 
 ***Features to come:***
-<br />[ ]Add "Top Channels"
 <br />[ ]Private Messaging (maybe)
 <br />[ ]***Notification System***
 
 
 ***Changelog:***
-<br />01.03.2014
+<br />02.03.2014 (v0.3)
+<br />-Search implemented
+<br />-User permission scope corrected
+<br />-Auto-Refresh for followed channels added
+<br />-Minimize to tray added
+<br />-added always on top option for main window
+<br />-added context menu to channels in game tab
+<br />-channel info window now directly accessible from menu
+
+01.03.2014
 <br />-resized video preview
 <br />-added "channel detail" window
 <br />-made games with more than 100 channels browsable
@@ -52,10 +61,10 @@ NEXT UP: Adding "Top Channels"
 
 
 ***Download compiled version:***
-<br />http://raw-raw.de/mtedl/MyTwitchExperience0.2.2.zip
+<br />http://raw-raw.de/mtedl/MyTwitchExperience0.3.zip
 
 Virustotal:
-<br />https://www.virustotal.com/en/file/4d21fc359a32ae3528eead0d5a26f0cdd1b84d0b2d3dfcb255f094adf75ab04a/analysis/1393650065/
+<br />https://www.virustotal.com/en/file/1a1e15d3f79f17c48b7cbb58bd9b84a6f34e04eaffd1e8bd55c5accf966c982b/analysis/1393722623/
 
 I am not affiliated with Twitch/Justin.tv!
 ==================
