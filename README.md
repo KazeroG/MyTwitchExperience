@@ -12,7 +12,7 @@ MyTwitchExperience lets you browse Twitch.tv without a browser.
 
 ~~NEXT UP: Adding "Notification System"~~
 
-**Due to recent events I ceased all my activities on Twitch.tv. This Application has been taken offline and will no longer be developed. Cu on Hitbox maybe.**
+**_Due to recent events I ceased all my activities on Twitch.tv. This Application has been taken offline and will no longer be developed. Cu on Hitbox maybe._**
 
 
 ***Features so far:***
