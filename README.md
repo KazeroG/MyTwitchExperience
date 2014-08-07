@@ -6,11 +6,13 @@ Needs livestreamer in folder "livestreamer" (see compiled zip) for VLC option!
 
 ***What is MyTwitchExperience?***
 
-Screenshot: http://raw-raw.de/mtedl/mte_screenshot.png
+Screenshot: ****
 
 MyTwitchExperience lets you browse Twitch.tv without a browser.
 
-NEXT UP: Adding "Notification System"
+~~NEXT UP: Adding "Notification System"~~
+
+**Due to recent events I ceased all my activities on Twitch.tv. This Application has been taken offline and will no longer be developed. Cu on Hitbox maybe.**
 
 
 ***Features so far:***
@@ -21,9 +23,9 @@ NEXT UP: Adding "Notification System"
 <br />[X]View details for a channel (like registration date, etc.)
 <br />[X]Basic search funcion
 
-***Features to come:***
-<br />[ ]Private Messaging (maybe)
-<br />[ ]***Notification System***
+~~***Features to come:***~~
+~~<br />[ ]Private Messaging (maybe)~~
+~~<br />[ ]***Notification System***~~
 
 
 ***Changelog:***
@@ -67,10 +69,7 @@ The compiled ZIP includes LiveStreamer
 
 
 ***Download compiled version:***
-<br />http://raw-raw.de/mtedl/MyTwitchExperience0.3.zip
-
-Virustotal:
-<br /https://www.virustotal.com/en/file/f4279cd3a136c3233197bfb4caa20a1759bfd8221aec96f925e7385e9db985b8/analysis/1393727855/
+<br />*********
 
 I am not affiliated with Twitch/Justin.tv!
 ==================
